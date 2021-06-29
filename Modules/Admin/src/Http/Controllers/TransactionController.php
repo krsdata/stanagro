@@ -62,7 +62,7 @@ class TransactionController extends Controller
         }
 
         $transaction = $transaction->with('user', 'product', 'coupan')->orderBy('id', 'desc')->Paginate(20);
-
+        dd($transaction);
 
         return view('packages::transaction.index', compact('transaction', 'page_title', 'page_action'));
     }
