@@ -39,13 +39,13 @@
 
     <body class=" login" style="background-color: #e9ecf3">
         <!-- BEGIN LOGO -->
-        <!-- <div class="logo">
+        <div class="logo">
             @if(isset($setting->website_logo))
                <img src="{{ URL::asset('storage/uploads/img/'.$setting->website_logo ) }}" style=" width:150px;"> 
                @else
                 <h2><b>Admin Login </b> </h2>
                @endif
-        </div> -->
+        </div>  
 
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
