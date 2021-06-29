@@ -42,7 +42,7 @@
         <!-- BEGIN LOGO -->
        <div class="logo">
             @if(isset($setting->website_logo))
-               <img src="{{ URL::asset('storage/uploads/img/'.$setting->website_logo ) }}" style="padding: 10px 75px; background-color: #fff"> 
+               <img src="{{ URL::asset('storage/uploads/img/'.$setting->website_logo ) }}" style="width: 150px;"> 
                @else
                 <h2><b>Forget Password </b> </h2>
                @endif
