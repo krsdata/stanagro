@@ -37,7 +37,7 @@
         <!-- END PAGE LEVEL STYLES -->
         <!-- END HEAD -->
 
-    <body class=" login" style="background-color: #e9ecf3">
+    <body class=" login" style="background-color: #e9ecf3; margin:0px">
         <!-- BEGIN LOGO -->
         <div class="logo">
             @if(isset($setting->website_logo))
