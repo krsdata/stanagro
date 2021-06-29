@@ -37,9 +37,9 @@
         <!-- END PAGE LEVEL STYLES -->
         <!-- END HEAD -->
 
-    <body class=" login" style="background-color: #e9ecf3; margin:0px">
+    <body class=" login" style="background-color: #e9ecf3;">
         <!-- BEGIN LOGO -->
-        <div class="logo">
+        <div class="logo" style="margin:0px">
             @if(isset($setting->website_logo))
                <img src="{{ URL::asset('storage/uploads/img/'.$setting->website_logo ) }}" style=" width:150px;"> 
                @else
