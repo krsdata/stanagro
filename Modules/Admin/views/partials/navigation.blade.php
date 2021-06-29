@@ -32,7 +32,7 @@
 
                              <li>
                                 <a href="{{ route('product')}}">
-                                    <i class="glyphicon glyphicon-th"></i> View Prodocts </a>
+                                    <i class="glyphicon glyphicon-th"></i> View Products </a>
                             </li>
 
 

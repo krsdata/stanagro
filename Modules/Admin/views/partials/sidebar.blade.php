@@ -223,7 +223,7 @@
                                 </li>
 
                                 <li class="nav-item  {{ (isset($page_title) && $page_action=='View Contact')?'active':'' }}">
-                                    <a href="{{ route('contact') }}" class="nav-link ">
+                                    <a href="{{ url('admin/contact') }}" class="nav-link ">
                                         <i class="glyphicon glyphicon-eye-open"></i> 
                                         <span class="title">
                                             View Contacts
