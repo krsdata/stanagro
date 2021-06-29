@@ -163,7 +163,7 @@
                         <a href="{{ url($product->url )}}">{{$product->product_title}}</a> </h3>
                         <div class="rating rateit-small"></div>
                         <div class="description"> ({{ $product->views+100 }} views) </div>
-                       <div class="product-price"> <span class="price"> Rs {{$product->price-($product->price*$product->discount)/100}} </span> <span class="price-before-discount">RS {{$product->price}}</span>  </div>
+                       <div class="product-price"> <span class="price"> ₹ {{$product->price-($product->price*$product->discount)/100}} </span> <span class="price-before-discount">₹ {{$product->price}}</span>  </div>
                         <!-- /.product-price --> 
                         
                       </div>
@@ -227,7 +227,7 @@
                         <h3 class="name"><a href="{{  $product->url }}">{{$product->product_title}}</a></h3>
                         <div class="rating rateit-small"></div>
                         <div class="description">({{ $product->views+100 }} views)</div>
-                       <div class="product-price"> <span class="price"> RS {{$product->price-($product->price*$product->discount)/100}} </span> <span class="price-before-discount">RS {{$product->price}}</span> </div>
+                       <div class="product-price"> <span class="price"> ₹ {{$product->price-($product->price*$product->discount)/100}} </span> <span class="price-before-discount">₹ {{$product->price}}</span> </div>
                         <!-- /.product-price --> 
                         
                       </div>

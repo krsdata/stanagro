@@ -44,7 +44,7 @@
                           <h3 class="name"><a href="product-details">{{ $product->product_title }}</a></h3>
                           
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> RS {{ $product->price-($product->price*$product->discount)/100}} </span> <span class="price-before-discount">RS {{ $product->price}}</span> </div>
+                          <div class="product-price"> <span class="price"> ₹{{ $product->price-($product->price*$product->discount)/100}} </span> <span class="price-before-discount">₹{{ $product->price}}</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
@@ -97,19 +97,30 @@
                         <!-- /.col -->
                         <div class="col col-sm-8 col-lg-8" style="float: left;">
                           <div class="product-info">
-                            <h3 class="name"><a href="{!! url($product->url) !!}">{{$product->product_title}}</a></h3>
+                            <h3 class="name"><a href="{!! url($product->url) !!}" style="color:#000">{{$product->product_title}}</a></h3>
                             <br>
-                            
-                            <div class="product-price"> 
-                              <span class="price"> 
-                              RS {{ $product->price-($product->price*$product->discount)/100}} {{ucwords($product->unit)}}</span>
+                              <p>{{ucwords($product->unit)}}</p>
+                               <?php
+                              $dp = $product->price-($product->price*$product->discount)/100;
+                              ?>
+                            <div class="product-price" > 
+                              
+                              <span class="price" style="font-size: x-large;">
 
+                              ₹{{ $product->price-($product->price*$product->discount)/100}} </span>
+                              
+                              @if( $dp!=$product->price)
                             <span class="price-before-discount">
-                              RS {{$product->price}} </span> 
-                             
+                              ₹ {{$product->price}} </span> 
+                              @endif
+                               @if($product->discount!=0)
+                              {{$product->discount}}% <span style="color:green">Off</span> 
+                              @endif
+                            
+                              
                             </div>
                             <!-- /.product-price -->
-                            <div class="description m-t-10">{!! str_limit($product->description,100) !!}
+                            <div class="description m-t-10">{!! str_limit($product->description,200) !!}
 
                             <a href="{!! url($product->url) !!}"> Read More</a>   </div>
                             <div class="cart clearfix animate-effect">

@@ -108,11 +108,20 @@
 				<div class="price-container info-container m-t-20">
 					<div class="row">
 						
-
+						 <?php
+                              $dp = $product->price-($product->price*$product->discount)/100;
+                              ?>
 						<div class="col-sm-6">
 							<div class="price-box">
-								<span class="price">RS{{$product->price-($product->price*$product->discount/100)}}</span>
-								<span class="price-strike">RS{{$product->price}}</span>
+								<span class="price">₹{{$product->price-($product->price*$product->discount/100)}}</span> 
+								 @if( $dp!=$product->price)
+								 <span class="price-strike">
+                              ₹ {{$product->price}} </span> 
+                              @endif
+                               @if($product->discount!=0)
+                              {{$product->discount}}% <span style="color:green">Off</span> 
+                              @endif
+
 							</div>
 						</div>
 
