@@ -31,7 +31,7 @@
                                 <div class="portlet-title">
                         <div class="caption">
                             <i class="icon-settings font-red"></i>
-                            <span class="caption-subject font-red sbold uppercase">Export Reports (Total product : {{$report_count}})</span>
+                            <span class="caption-subject font-red sbold uppercase">Export Reports  </span>
                         </div>
                         <div class="col-md-2 pull-right">
                             <div style="width: 150px;" class="input-group"> 
