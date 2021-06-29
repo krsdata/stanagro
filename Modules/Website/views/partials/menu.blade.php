@@ -26,8 +26,8 @@
             
                 @if($userData==null)
                 <li><a href="{{ url('/') }}">Home</a></li>
-                 <li><a href="{{ url('signup') }}">Signup</a></li>
-                <li>  <a href="{{url('myaccount/login')}}">Login</a> </li>
+                 <li><a href="{{ url('signup') }}">Login</a></li><!-- 
+                <li>  <a href="{{url('myaccount/login')}}">Login</a> </li> -->
                 <li>  <a href="{{url('contact')}}">Contact Us</a> </li>
                   @else
                   <li><a href="{{ url('myaccount') }}">My Account</a></li>  
