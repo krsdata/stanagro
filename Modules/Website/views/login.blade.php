@@ -1,4 +1,50 @@
- 
+ <style>
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+.panel-default {
+    border-color: #ddd;
+}
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.btn-link {
+    color: #255946; 
+}
+.pull-right {
+    float: right!important;
+}
+form{display:table;}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-body {
+    padding: 15px;
+}
+@media (min-width: 992px)
+{
+.col-md-offset-2 {
+    margin-left: 16.66666667%;
+}}
+@media (min-width: 992px)
+{.col-md-8 {
+    width: 66.66666667%;
+}}
+ </style>
 
 
 @extends('website::layouts.master')
@@ -12,6 +58,8 @@
 
             @include('website::partials.menu')
             <!-- Left side column. contains the logo and sidebar -->
+            <div class="container">
+            <br/>
              <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
@@ -82,6 +130,6 @@
                     </div>
                 </div>
             </div>
- 
+        </div>
         @stop
  

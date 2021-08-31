@@ -1,198 +1,168 @@
- <!-- /.row --> 
-    <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-   <!--  <div id="brands-carousel" class="logo-slider wow fadeInUp">
-      <div class="logo-slider-inner">
-         
-           <section class="content-section bg-primary text-white" style="background: #1d809f!important">
-      <div class="container text-center">
-        <h2 class="mb-4" style="text-decoration:underline;">About Nuvka</h2>
-        <div style="text-align: center;font-size:20px; padding: 10px">
-          {!! $setting->website_description??$setting->website_title !!}
-        </div>
-      </div>
-    </section>  
-      </div> 
-      
-    </div> -->
-    <!-- /.logo-slider --> 
-    <!-- ============================================== BRANDS CAROUSEL : END ============================================== --> 
-  </div>
-  <!-- /.container --> 
-</div>
-<!-- /#top-banner-and-menu --> 
+ <footer class="site-footer">
+            <img src="assets/images/icons/footer-bg-icon-1.png" class="site-footer__shape-1" alt="">
+            <img src="assets/images/icons/footer-bg-icon-2.png" class="site-footer__shape-2" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                        <div class="footer-widget">
+                            <!-- <a href="{{url('/')}}" class="footer-widget__Logo">
+                                <img src="{{url('storage/uploads/img/'.$setting->website_logo)}}" width="153" alt="">
+                            </a> -->
+                            <p>STAN Agro Ventures is a hi-tech scientific Mushroom spawn production laboratory with experienced microbiologist operating from Bangalore.
+                            </p>
+                            <form action="#" data-url="YOUR_MAILCHIMP_URL" class="mc-form">
+                                <input type="email" name="EMAIL" placeholder="Email Address">
+                                <button type="submit"><i class="agrikon-icon-right-arrow"></i></button>
+                            </form><!-- /.mc-form -->
+                            <div class="mc-form__response"></div><!-- /.mc-form__response -->
+                            <div class="footer__social">
+                                <a href="https://www.facebook.com/stan.agroventures" target="_blank" class="fab fa-facebook-square" class="fab fa-facebook-square"></a>
+                                <a href="https://www.linkedin.com/in/stan-agro-ventures-37a823203/?originalSubdomain=in" class="fab fa-linkedin"></a>
+                                <a href="https://www.instagram.com/stanagroventures/" class="fab fa-instagram"></a>
+                            </div><!-- /.topbar__social -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-4 -->
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
+                        <div class="footer-widget footer-widget__links-widget">
+                            <h3 class="footer-widget__title">Links</h3><!-- /.footer-widget__title -->
+                            <ul class="list-unstyled footer-widget__links">
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Training</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul><!-- /.list-unstyled -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-2 -->
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-widget">
+                            <h3 class="footer-widget__title">News</h3><!-- /.footer-widget__title -->
+                            <ul class="list-unstyled footer-widget__post">
+                                <li>
+                                    <img src="{{ asset('public/agro/assets/images/resources/business.jpg') }}" alt="">
+                                    <div class="footer-widget__post-content">
+                                        <span>July 26, 2021</span>
+                                        <h4><a href="blog-details.html">How to start a profitable Mushroom business</a></h4>
+                                    </div><!-- /.footer-widget__post-content -->
+                                </li>
+                                <li>
+                                    <img src="{{ asset('public/agro/assets/images/resources/chemical-free.jpg') }}" alt="">
+                                    <div class="footer-widget__post-content">
+                                        <span>Aug 7, 2021</span>
+                                        <h4><a href="blog-details.html">Our mushrooms are chemical free mushrooms</a></h4>
+                                    </div><!-- /.footer-widget__post-content -->
+                                </li>
+                            </ul><!-- /.list-unstyled footer-widget__post -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-3 -->
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                        <h3 class="footer-widget__title">Contact</h3><!-- /.footer-widget__title -->
+                        <ul class="list-unstyled footer-widget__contact">
+                            <li>
+                                <i class="agrikon-icon-telephone"></i>
+                                <a href="tel:666-888-0000">074834 77692</a>
+                            </li>
+                            <li>
+                                <i class="agrikon-icon-email"></i>
+                                <a href="mailto:needhelp@company.com">stanagroventures@gmail.com</a>
+                            </li>
+                            <li>
+                                <i class="agrikon-icon-pin"></i>
+                                <a href="#">1st main, main road, near to Royal Enclave, Srirampura, Bengaluru, Karnataka 560064</a>
+                            </li>
+                        </ul><!-- /.list-unstyled -->
+                    </div><!-- /.col-sm-12 col-md-6 col-lg-3 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </footer><!-- /.site-footer -->
+        <div class="bottom-footer">
+            <div class="container">
+                <p>© Copyright 2021 by Stan Agro Ventures</p>
+                <div class="bottom-footer__links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                   <!--  <a href="#">Sitemap</a> -->
+                </div><!-- /.bottom-footer__links -->
+            </div><!-- /.container -->
+        </div><!-- /.bottom-footer -->
 
-<!-- ============================================================= FOOTER ============================================================= -->
-<footer id="footer" class="footer color-bg">
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="module-heading">
-            <h4 class="module-title">Contact Us</h4>
-          </div>
-          <!-- /.module-heading -->
-          
-          <div class="module-body">
-            <ul class="toggle-footer" style="">
-              <li class="media">
-                <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inveRSe"></i> </span> </div>
-                <div class="media-body" style="color: #fff">
-                  {!!  $setting->company_address??'Samstipur' !!}
-                </div>
-              </li>
-              <li class="media">
-                <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inveRSe"></i> </span> </div>
-                <div class="media-body" style="color: #fff">
-                  {{$setting->phone??$setting->mobile}}
+    </div><!-- /.page-wrapper -->
 
-                </div>
-              </li>
-            </ul>
-          </div>
-          <!-- /.module-body --> 
-        </div>
-        <!-- /.col -->
-        
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="module-heading">
-            <h4 class="module-title">Customer Service</h4>
-          </div>
-          <!-- /.module-heading -->
-          
-          <div class="module-body">
-            <ul class='list-unstyled'>
-             @foreach($page_menu as  $key => $result)
 
-                @if($key<4)
-                <li class="fiRSt">
-                  <a title="Your Account" style="color: #fff" href="{{url('page/'.$result->slug)}}"> {{ ucfirst($result->title)}} </a>
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="far fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="assets/images/logo-light.png" width="155" alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="agrikon-icon-email"></i>
+                    <a href="mailto:needhelp@agrikon.com">stanagroventures@gmail.com</a>
                 </li>
-                @endif
-              @endforeach
-             
-            </ul>
-          </div>
-          <!-- /.module-body --> 
-        </div>
-        <!-- /.col -->
-        
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="module-heading">
-            <h4 class="module-title">  <p style="height: 10px;"></p></h4>
-          </div>
-          <!-- /.module-heading -->
-          
-          <div class="module-body">
-            <ul class='list-unstyled'>
-
-              @foreach($page_menu as  $key => $result)
-
-                @if($key>3)
-                <li class="fiRSt">
-                  <a style="color: #fff" title="{{$result->slug}}" href="{{url('page/'.$result->slug)}}"> {{ ucfirst($result->title)}} </a>
+                <li>
+                    <i class="agrikon-icon-telephone"></i>
+                    <a href="tel:666-888-0000">074834 77692</a>
                 </li>
-                @endif
-              @endforeach
-             
-            </ul>
-          </div>
-          <!-- /.module-body --> 
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="https://www.facebook.com/stan.agroventures" aria-label="facebook" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.linkedin.com/in/stan-agro-ventures-37a823203/?originalSubdomain=in" aria-label="linkedin" target="_blank"><i class="fab fa-linkedin-p"></i></a>
+                    <a href="https://www.instagram.com/stanagroventures/" aria-label="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
         </div>
-        <!-- /.col -->
-        
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="module-heading">
-            <h4 class="module-title">Working Hours</h4>
-          </div>
-          <!-- /.module-heading -->
-          
-          <div class="module-body">
-            <ul class='list-unstyled' style="color: #fff">
-               
-                
-                {!! $setting->company_timing??'' !!}  
-                
-               
-            </ul>
-          </div>
-          <!-- /.module-body --> 
-        </div>
-      </div>
+        <!-- /.mobile-nav__content -->
     </div>
-  </div>
-  <div class="copyright-bar">
-    <div class="container">
-      <div class="col-xs-12 col-sm-6 no-padding social">
-        <ul class="link">
+    <!-- /.mobile-nav__wrapper -->
 
-          <ul class="link">
-          <li class="fb pull-left"><a target="_blank" rel="nofollow" href="{{$setting->fb_id??'#'}}" title="Facebook"></a></li>
-          <li class="tw pull-left"><a target="_blank" rel="nofollow" href="{{$setting->twitter_id??'#'}}" title="Twitter"></a></li>
-          <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="{{$setting->google_plus??'#'}}" title="GooglePlus"></a></li>
-        
-          <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="{{$setting->pintrest??'#'}}" title="PInterest"></a></li>
-          <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="{{$setting->linkedin_url??'#'}}" title="Linkedin"></a></li>
-          <li class="youtube pull-left"><a target="_blank" rel="nofollow" href="{{$setting->youtube??'#'}}" title="Youtube"></a></li>
-
-
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-6 no-padding">
-        <div class="clearfix payment-methods">
-          <ul>
-            <li><img src="{{ asset('public/enduser/assets/images/payments/1.png') }}" alt=""></li>
-            <li><img src="{{ asset('public/enduser/assets/images/payments/2.png') }}" alt=""></li>
-            <li><img src="{{ asset('public/enduser/assets/images/payments/3.png') }}" alt=""></li>
-            <li><img src="{{ asset('public/enduser/assets/images/payments/4.png') }}" alt=""></li> 
-          </ul>
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <!-- /.search-popup__overlay -->
+        <div class="search-popup__content">
+            <form action="#">
+                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                <input type="text" id="search" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
         </div>
-        <!-- /.payment-methods --> 
-      </div>
+        <!-- /.search-popup__content -->
     </div>
-  </div>
-</footer>
+    <!-- /.search-popup -->
 
-    <script type="text/javascript">
-        
-        var url= "{{ url('/') }}";
-
-    </script>
-    <!-- ============================================================= FOOTER : END============================================================= --> 
-
-    <!-- For demo purposes – can be removed on production --> 
-
-    <!-- For demo purposes – can be removed on production : End --> 
-
-    <!-- JavaScripts placed at the end of the document so the pages load faster --> 
-    <script src="{{ asset('public/enduser/assets/js/jquery-1.11.1.min.js') }}"></script> 
-     <script src="{{ asset('public/enduser/assets/js/bootstrap.min.js') }}"></script> 
-     <script src="{{ asset('public/enduser/assets/js/owl.carousel.min.js') }}"></script> 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
-    
-    
-    <script type="text/javascript">
-      
-      $(window).load(function() {
-        // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");
-      });
-    </script>
-
-   
-    <script src="{{ asset('public/enduser/assets/js/bootstrap-hover-dropdown.min.js') }}"></script> 
-    <script src="{{ asset('public/enduser/assets/js/echo.min.js') }}"></script> 
-    <script src="{{ asset('public/enduser/assets/js/jquery.easing-1.3.min.js') }}"></script> 
-    <script src="{{ asset('public/enduser/assets/js/bootstrap-slider.min.js') }}"></script> 
-    <script src="{{ asset('public/enduser/assets/js/jquery.rateit.min.js') }}"></script> 
-    <script type="text/javascript" src="{{ asset('public/enduser/assets/js/lightbox.min.js') }}"></script> 
-    <script src="{{ asset('public/enduser/assets/js/bootstrap-select.min.js') }}"></script> 
-    <script src="{{ asset('public/enduser/assets/js/wow.min.js') }}"></script> 
-    <script src="{{ asset('public/enduser/assets/js/scripts.js') }}"></script>
-    <script src="{{ asset('public/assets/js/bootbox.js') }}"></script>
-    <script src="{{ asset('public/assets/js/common.js') }}"></script> 
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
 
+    <script src="{{ asset('public/agro/assets/js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/swiper.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/wow.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/odometer.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/jquery.appear.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/jarallax.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/wNumb.min.js') }}"></script>
+    <script src="{{ asset('public/agro/assets/js/nouislider.min.js') }}"></script>
 
-    
-  </body>
+    <!-- template js -->
+    <script src="{{ asset('public/agro/assets/js/theme.js') }}"></script>
+</body>
+
 </html>

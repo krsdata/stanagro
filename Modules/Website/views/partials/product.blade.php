@@ -1,20 +1,17 @@
- <div class="col-md-9"> 
+<style>
+.image img{width:100%;}
+
+</style>
+
+
+<section class="products-one products-one__single">
+            <div class="container">
+
+                <div class="row">
+
+ <div class="col-md-12"> 
         <!--  SECTION – HERO ========================================= -->
-        <div class="clearfix filters-container m-t-10">
-          <div class="row">
-            <div class="col col-sm-6 col-md-2">
-              <div class="filter-tabs">
-                <ul id="filter-tabs" class="nav nav-tabs nav-tab-box nav-tab-fa-icon">
-                  <li class="active"> <a data-toggle="tab" href="index.htm#grid-container"><i class="icon fa fa-th-large"></i>Grid</a> </li>
-                  <li><a data-toggle="tab" href="#list-container"><i class="icon fa fa-th-list"></i>List</a></li>
-                </ul>
-              </div>
-              <!-- /.filter-tabs --> 
-            </div>
-           
-          </div>
-          <!-- /.row --> 
-        </div>
+        
         <div class="search-result-container ">
           <div id="myTabContent" class="tab-content category-list">
            
@@ -36,13 +33,12 @@
                         </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
+                         <!--  <div class="tag new"><span>new</span></div> -->
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="product-details">{{ $product->product_title }}</a></h3>
-                          
                           <div class="description"></div>
                           <div class="product-price"> <span class="price"> ₹{{ $product->price-($product->price*$product->discount)/100}} </span> <span class="price-before-discount">₹{{ $product->price}}</span> </div>
                           <!-- /.product-price --> 
@@ -98,7 +94,6 @@
                         <div class="col col-sm-8 col-lg-8" style="float: left;">
                           <div class="product-info">
                             <h3 class="name"><a href="{!! url($product->url) !!}" style="color:#000">{{$product->product_title}}</a></h3>
-                            <br>
                               <p>{{ucwords($product->unit)}}</p>
                                <?php
                               $dp = $product->price-($product->price*$product->discount)/100;
@@ -145,7 +140,7 @@
                         <!-- /.col --> 
                       </div>
                       <!-- /.product-list-row -->
-                      <div class="tag new"><span>new</span></div>
+                      <!-- <div class="tag new"><span>new</span></div> -->
                     </div>
                     <!-- /.product-list --> 
                   </div>
@@ -177,3 +172,6 @@
       </div>
       <!-- /.col --> 
     </div>
+    </div>
+    </div>
+    </section>

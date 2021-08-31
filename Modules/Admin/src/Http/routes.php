@@ -392,3 +392,27 @@ declare(strict_types=1);
 
         Route::match(['get','post'], 'admin/profile', 'Modules\Admin\Http\Controllers\AdminController@profile');
     });
+
+ /*-----------Testimonial and controller---------*/
+
+        Route::bind('testimonial', function ($value, $route) {
+            return Modules\Admin\Models\Testimonial::find($value);
+        });
+
+        Route::resource(
+            'admin/testimonial',
+            'Modules\Admin\Http\Controllers\TestimonialController',
+            [
+                'names' => [
+                    'edit'    => 'testimonial.edit',
+                    'show'    => 'testimonial.show',
+                    'destroy' => 'testimonial.destroy',
+                    'update'  => 'testimonial.update',
+                    'store'   => 'testimonial.store',
+                    'index'   => 'testimonial',
+                    'create'  => 'testimonial.create',
+                ],
+            ]
+        );
+       
+

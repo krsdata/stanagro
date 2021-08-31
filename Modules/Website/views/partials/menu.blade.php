@@ -1,129 +1,104 @@
+<style>
+.top-cart-row .dropdown-cart .lnk-cart {
+    padding: 12px 0px 12px 20px;
+    display: inline-block;
+    color: #fff;
+}
+.agrikon-icon-shopping-cart{color:#255946;}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #255946;
+    border-color: #255946;
+}
+.top-cart-row .dropdown-cart .dropdown-menu {
+    border: 1px solid #e1e1e1;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    float: right;
+    left: auto;
+    min-width: 0;
+    padding: 24px 22px;
+    right: 0;
+    width: 230px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.lbl{    background-color: #255946;
+    border-radius: 50px;
+    font-size: 10px;
+    padding: 2px 5px;
+    color: #fff;}
+</style>
+<div class="preloader">
+        <img class="preloader__image" width="55" src="{{ asset('public/agro/assets/images/loader.png') }}" alt="">
+    </div><!-- /.preloader -->
+    <div class="page-wrapper">
 
-<!-- ============================================== HEADER ============================================== -->
-<header class="header-style-1"> 
-  
-  <!-- ============================================== TOP MENU ============================================== -->
-  <div class="top-bar animate-dropdown" style="background-color: #2774f0; font-size: inherit; font-weight:bold; line-height: 45px">
-    <div class="container">
-      <div class="header-top-inner">
-       
-        
-     <div class="logo" style="float: left;">
-        <a href="{{url('/')}}">  <img src="{{url('storage/uploads/img/'.$setting->website_logo)}}" style="width: 100px; height: 55px;"> </a>
-
-        </div>
-
-
-          <div class="col-md-6" style="margin-left: 10px; margin-top: 10px; color: #fff; font-size: 22px; font-family: 'Open Sans', sans-serif;"> 
-               {{$setting->website_title??''}} 
-          
-        </div>
-
-        <div class="col-md-5" style="width: auto;"> 
-        <div class="cnt-account">
-          <ul class="list-unstyled"> 
-            <li style="color: #fff; ">Call Us: {{$setting->phone??$setting->mobile}} </li>  
-            
-                @if($userData==null)
-                <li><a href="{{ url('/') }}">Home</a></li>
-                 <li><a href="{{ url('signup') }}">Login</a></li><!-- 
-                <li>  <a href="{{url('myaccount/login')}}">Login</a> </li> -->
-                <li>  <a href="{{url('contact')}}">Contact Us</a> </li>
-                  @else
-                  <li><a href="{{ url('myaccount') }}">My Account</a></li>  
-                 <li> <a href="{{url('signout')}}">Logout</a> </li>
-                  @endif
-              
-          </ul>
-        </div>
-        <!-- /.cnt-account -->
-        </div>
- 
-      </div>
-      <!-- /.header-top-inner --> 
-    </div>
-    <!-- /.container --> 
-  </div>
-  <!-- /.header-top --> 
-  <!-- ============================================== TOP MENU : END ============================================== -->
-  <div class="main-header" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.08)">
-    <div class="container">
-      <div class="row">
-         
-        <!-- /.logo-holder -->
-        
-        <div class="col-xs-12 col-sm-12 col-md-9 top-search-holder"> 
-          <!-- /.contact-row --> 
-          <!-- ============================================================= SEARCH AREA 
-          {{ $category or 'Categories' }}
-          ============================================================= -->
-          <div class="search-area"> 
-            <div class="nav-bg-class">
-          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
-            <div class="nav-outer" style="font-weight: bold; font-size: 16px">
-              <ul class="nav navbar-nav">
-                <li class="active dropdown yamm-fw">
-                 <a href="{{url('/')}}">Home</a> </li>
-
-
-
-                 @foreach($category_list as $key => $result)
+        <header class="main-header">
+            <div class="topbar">
+                <div class="container">
+                    <div class="topbar__left">
+                        <div class="topbar__social">
+                            <a href="https://www.facebook.com/stan.agroventures" class="fab fa-facebook-square" target="_blank"></a>
+                            <a href="https://www.linkedin.com/in/stan-agro-ventures-37a823203/?originalSubdomain=in" class="fab fa-linkedin" target="_blank"></a>
+                            <a href="https://www.instagram.com/stanagroventures/" class="fab fa-instagram" target="_blank"></a>
+                        </div><!-- /.topbar__social -->
+                        <p>Welcome to Stan Agro Ventures</p>
+                    </div><!-- /.topbar__left -->
+                    <div class="topbar__right">
+                        @if($userData==null)
+                         <a href="{{ url('signup') }}"><i class="agrikon-icon-phone"></i>Login</a>
+                           @else
+                          <li><a href="{{ url('myaccount') }}">My Account</a></li>  
+                         <li> <a href="{{url('signout')}}">Logout</a> </li>
+                          @endif
+                        <a href="#"><i class="agrikon-icon-email"></i>stanagroventures@gmail.com</a>
+                        <a href="#"><i class="agrikon-icon-phone"></i>074834 77692</a>
+                    </div><!-- /.topbar__right -->
+                </div><!-- /.container -->
+            </div><!-- /.topbar -->
+            <nav class="main-menu">
+                <div class="container">
+                    <div class="logo-box">
+                        <a href="{{url('/')}}" aria-label="logo image"><img src="{{url('storage/uploads/img/'.$setting->website_logo)}}" width="153" alt=""></a>
+                        <span class="fa fa-bars mobile-nav__toggler"></span>
+                    </div><!-- /.logo-box -->
+                    <ul class="main-menu__list">
+                        <li class="dropdown">
+                            <a href="{{url('/')}}">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Mushroom Spawms</a>
+                            <ul>
+                                  @foreach($category_list as $key => $result)
                   
-                  <?php ++$key ;
-                  if($key>=6){
-                    continue;
-                  }
-                  ?>
+                                  <?php ++$key ;
+                                  if($key>=6){
+                                    continue;
+                                  }
+                                  ?>
 
-                <li class="dropdown yamm mega-menu"> 
-                <a href="{!! url('category/'.$result->slug) !!}"> {!! ucfirst(strtolower($result->category_name)) !!}</a>
-                 <!--  <ul class="dropdown-menu container">
-                   <li>
-                      <div class="yamm-content ">
-                        <div class="row">
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Shoes</h2>
-                            <ul class="links">
-                              <li><a href="http://shopersquare.com/product-category/Shoes/women-foot-wear/51">Women Foot Wear</a></li> 
-                              <li><a href="http://shopersquare.com/product-category/Shoes/men-foot-wear/62">Men Foot Wear</a></li> 
-                              </ul>
-                          </div> 
-                          
-                        </div>
-                      </div>
-                    </li> 
-                  </ul>  -->
-                </li> 
-                                 
-                      @endforeach            
-                  
-               </ul>
-              <!-- /.navbar-nav -->
-              <div class="clearfix"></div>
-            </div>
-            <!-- /.nav-outer --> 
-          </div>
-          <!-- /.navbar-collapse --> 
-          
-        </div>
-          </div>
-          <!-- /.search-area --> 
-          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
-        <!-- /.top-search-holder -->
-        
+                                        <li class="dropdown yamm mega-menu"> 
+                                        <a href="{!! url('category/'.$result->slug) !!}"> {!! ucfirst(strtolower($result->category_name)) !!}</a>
+                                        </li> 
+                                                         
+                                      @endforeach     
+                            </ul>
+                        </li>
+                        <li><a href="{{url('/training')}}">Training</a></li>
+                        <li><a href="{{url('/services')}}">Services</a></li>
+                        <li><a href="{{url('/contact')}}">Contact</a></li>
+                        
+                    </ul>
+                    <!-- /.main-menu__list -->
 
-        <div class="col-xs-12 col-sm-12 col-md-3 animate-dropdown top-cart-row"> 
-          <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-          
-          <div class="dropdown dropdown-cart"> <a href="##" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
-            <div class="items-cart-inner" style="background: #ff7878">
-              <div class="top-cart" style="background: #ff7878; margin-left: 3px; ::before:#ff7878">  </div>
-              
-              <div class="total-price-basket"> <span class="lbl">{{$total_item}} items /</span> <span class="total-price"> <span class="sign">₹ </span><span class="value">{{$sub_total}}</span> </span> </div>
-            </div>
-            </a>
-            <ul class="dropdown-menu">
+                    <div class="main-header__info">
+                        <a href="#" class="search-toggler main-header__search-btn"><i class="agrikon-icon-magnifying-glass"></i></a>
+
+                   <div class="animate-dropdown top-cart-row"><div class="dropdown dropdown-cart"> <a href="##" class="main-header__cart-btn dropdown-toggle lnk-cart" data-toggle="dropdown"><i class="agrikon-icon-shopping-cart"></i><span class="lbl">{{$total_item}}</span></a>
+                         <ul class="dropdown-menu">
               <li>
                 <div class="cart-item product-summ#fdd922ary">
                   
@@ -140,30 +115,20 @@
                 <!-- /.cart-total--> 
                 
               </li>
-            </ul>
-            <!-- /.dropdown-menu--> 
-          </div>
-          <!-- /.dropdown-cart --> 
-          
-          <!-- SHOPPING CART DROPDOWN : END --> </div>
-        <!-- /.top-cart-row --> 
-      </div>
-      <!-- /.row --> 
-      
-    </div>
-    <!-- /.container --> 
-    
-  </div>
-  <!-- /.main-header --> 
-  
-  <!-- ============================================== NAVBAR ============================================== -->
-  
-  <!-- /.header-nav --> 
-  <!-- ============================================== NAVBAR : END ============================================== --> 
-  
-</header>
+            </ul></div></div>
+                        <a href="tel:92-666-888-0000" class="main-header__info-phone">
+                            <i class="agrikon-icon-phone-call"></i>
+                            <span class="main-header__info-phone-content">
+                                <span class="main-header__info-phone-text">Call Anytime</span>
+                                <span class="main-header__info-phone-title">074834 77692</span>
+                            </span><!-- /.main-header__info-phone-content -->
+                        </a><!-- /.main-header__info-phone -->
+                    </div><!-- /.main-header__info -->
+                </div><!-- /.container -->
+            </nav>
+            <!-- /.main-menu -->
+        </header><!-- /.main-header -->
 
-<!-- ============================================== HEADER : END ============================================== -->
-
-<div class="body-content outer-top-vs" id="top-banner-and-menu">
-  <div class="container"> 
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->

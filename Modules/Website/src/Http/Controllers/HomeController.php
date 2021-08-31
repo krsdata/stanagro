@@ -251,8 +251,8 @@ class HomeController extends Controller
          
         if($product==null)
         {
-             $url =  URL::previous().'?error=InvaliAccess'; 
-              return Redirect::to($url);
+             // $url =  URL::previous().'?error=InvaliAccess'; 
+             // return Redirect::to($url);
         }else{
           $product->views=$product->views+1;
           $product->save(); 
@@ -276,6 +276,22 @@ class HomeController extends Controller
         $categories = Category::nested()->get(); 
         return view('website::faq',compact('categories','products')); 
         return view('website::faq');   
+    }
+
+    public function services()
+    {
+         $products = Product::with('category')->orderBy('id','asc')->get();
+        $categories = Category::nested()->get(); 
+        return view('website::services',compact('categories','products')); 
+        return view('website::services');   
+    }
+
+     public function training()
+    {
+         $products = Product::with('category')->orderBy('id','asc')->get();
+        $categories = Category::nested()->get(); 
+        return view('website::training',compact('categories','products')); 
+        return view('website::training');   
     }
 
     public function contact()

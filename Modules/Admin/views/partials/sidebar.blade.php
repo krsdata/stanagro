@@ -31,7 +31,7 @@
                     </ul>
                 </li> 
 
-                <li class="nav-item start active {{$Users or null }} {{ (isset($page_title) && $page_title=='Role')?'open':'' }}">
+              <!--   <li class="nav-item start active {{$Users or null }} {{ (isset($page_title) && $page_title=='Role')?'open':'' }}">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-th"></i>
                         <span class="title">User Type</span>
@@ -66,7 +66,7 @@
                     </ul>
                 </li>
 
-
+ -->
                 <li class="nav-item {{$Users or null }}   start active  {{ (isset($page_title) && ($page_title=='Admin User' || $page_title=='Front User') )?'open':'' }}">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="glyphicon glyphicon-user"></i>
@@ -304,7 +304,34 @@
                     </ul>
                 </li>
 
-                
+                 <li class="nav-item {{$Testimonial or null }}   start active  {{ (isset($page_title) && ($page_title=='Admin Testimonial' || $page_title=='Front Testimonial') )?'open':'' }}">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span class="title">Manage Testimonial</span>
+                        <span class="arrow {{ (isset($page_title) && $page_title=='Admin Testimonial')?'open':'' }}"></span>
+                    </a>
+
+                    <ul class="sub-menu" style="display: {{ (isset($page_title) && ($page_title=='Admin Testimonial' OR $page_title=='Front Testimonial' ))?'block':'none' }}">
+
+                          <li class="nav-item  {{ (isset($page_title) && $page_action=='Create Admin Testimonial')?'active':'' }}">
+                                    <a href="{{ route('testimonial.create') }}" class="nav-link ">
+                                        <i class="glyphicon glyphicon-plus-sign"></i>
+                                        <span class="title">
+                                            Create Testimonial
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item  {{ (isset($page_title) && $page_action=='View Admin Testimonial')?'active':'' }}">
+                                    <a href="{{ route('testimonial') }}" class="nav-link ">
+                                        <i class="glyphicon glyphicon-eye-open"></i>
+                                        <span class="title">
+                                            View Testimonial
+                                        </span>
+                                    </a>
+                                </li>
+                    </ul>
+                </li> 
 
                
 

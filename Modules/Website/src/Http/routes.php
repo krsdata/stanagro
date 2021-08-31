@@ -99,8 +99,15 @@
           Route::get('faq',[
                   'as' => 'faq',
                   'uses'  => 'HomeController@faq'
-                ]); 
-          
+                ]);
+          Route::get('services',[
+                  'as' => 'services',
+                  'uses'  => 'HomeController@services'
+                ]);       
+          Route::get('training',[
+                  'as' => 'training',
+                  'uses'  => 'HomeController@training'
+                ]);  
            Route::get('contact',[
                   'as' => 'contact',
                   'uses'  => 'HomeController@contact'
@@ -162,20 +169,8 @@
                ]);
           Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-          Route::get('myaccount/signup',[
-              'as' => 'myaccount-signup',
-              'uses'  => 'ProductController@showLoginForm'
-            ]); 
-
-          Route::get('register',[
-                  'as' => 'pregister',
-                  'uses'  => 'ProductController@showLoginForm'
-                ]);  
-
-          Route::get('myaccount/login',[
-                  'as' => 'pregister',
-                  'uses'  => 'ProductController@showLoginForm'
-                ]);    
+          
+ 
 
           Route::get('signup',[
                   'as' => 'register',

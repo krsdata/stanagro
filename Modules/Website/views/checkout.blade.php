@@ -1,3 +1,27 @@
+<style>
+.page-header .container{padding-top:60px!important;padding-bottom:60px!important;}
+.cart-grand-total span{color:#49a760}
+.estimate-ship-tax table,.cart-shopping-total table{border:1px solid #dee2e6}
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+}
+.shopping-cart {
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    padding: 20px;
+    overflow: hidden;
+    margin-top:20px;
+}
+@media (min-width: 1200px)
+{
+.checkout-page{ 
+    width: 1170px;
+    margin:0 auto;
+    padding-left:15px;padding-right:15px;
+}
+}
+</style>
+
 
 @extends('website::layouts.master')
     @section('title', 'HOME')
@@ -8,7 +32,7 @@
             @include('website::partials.menu')
               @include('website::partials.breadcrumb')
             <!-- Left side column. contains the logo and sidebar -->
-            <div class="">
+            <div class="checkout-page">
                 <div class="shopping-cart">
                     <div class="shopping-cart-table ">
                         <div class="table-responsive">
@@ -101,29 +125,7 @@
 
                     <div class="col-md-4 col-sm-12 estimate-ship-tax">
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span class="estimate-title">Discount Code</span>
-                                        <p>Enter your coupon code if you have one..</p>
-                                    </th>
-                                </tr>
-                             
-                            </thead>
-                            <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-group">
-                                                <input class="form-control unicase-form-control text-input" placeholder="You Coupon.." type="text">
-                                            </div>
-                                            <div class="clearfix pull-right">
-                                                <button type="submit" class="btn-upper btn btn-primary">APPLY COUPON</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                            </tbody><!-- /tbody -->
-                        </table><!-- /table -->
+                        
                     </div><!-- /.estimate-ship-tax -->
 
                     <div class="col-md-4 col-sm-12 cart-shopping-total">

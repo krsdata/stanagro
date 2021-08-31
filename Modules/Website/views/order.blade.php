@@ -1,3 +1,68 @@
+<style>
+.body-content{margin:50px 0px;}
+.checkout-box .panel-group .panel {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    padding: 20px;
+    border: none;
+}
+.panel-heading {
+    padding: 10px 15px !important;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-group {
+    margin-bottom: 20px;
+}
+.checkout-box .checkout-steps .panel .panel-heading, .checkout-box .checkout-progress-sidebar .panel .panel-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    text-transform: uppercase;
+    padding: 0px;
+    border: none;
+}
+.checkout-box .checkout-steps .panel .panel-heading, .checkout-box .checkout-progress-sidebar .panel .panel-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    text-transform: uppercase;
+    padding: 0px;
+    border: none;
+}
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title {
+    margin: 0px !important;
+    font-size: 13px;
+    font-weight: bold;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title {
+    margin: 0px !important;
+    font-size: 13px;
+    font-weight: bold;
+}
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title > a:not(.collapsed) span {
+    background-color: #085b9a;
+}
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title a {
+    color: #555;
+    text-transform: uppercase;
+    display: block;
+}
+</style>
 
 @extends('website::layouts.master')
     @section('title', 'HOME')
@@ -24,7 +89,7 @@
     <!-- panel-heading -->
         <div class="panel-heading">
         <h4 class="unicase-checkout-title"> 
-            <a  data-toggle="collapse" class="{{ ($tab==0)?'':'collapse'}}"  data-parent="#accordion" href="index.htm#collapseOne">
+            <a  data-toggle="collapse" class="{{ ($tab==0)?'':'collapse'}}"  data-parent="#accordion" href="#collapseOne">
               <span>1</span>Checkout Method
             </a>
          </h4>
@@ -61,7 +126,7 @@
                         <li class="save-time-reg">- Fast and easy check out</li>
                         <li>- Easy access to your order history and status</li>
                     </ul>
-                     <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="index.htm#collapseTwo2">
+                     <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo2">
                     <button   type="button" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Continue</button> </a>
                 </div>
                 <!-- guest-login -->
@@ -79,7 +144,7 @@
                       <div class="form-group">
                         <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
                         <input class="form-control unicase-form-control text-input" name="password" id="exampleInputPassword1" placeholder="" type="password">
-                        <a href="index.htm#" class="forgot-password">Forgot your Password?</a>
+                        <a href="#" class="forgot-password">Forgot your Password?</a>
                       </div>
                       <button type="button"  onclick="loginBtn()" class="btn-upper btn btn-primary checkout-page-button" >Login</button>
                       <span id="loginError" style="color: red"></span>
@@ -97,7 +162,7 @@
   <div class="panel panel-default checkout-step-022 closeREG" id="register">
                         <div class="panel-heading">
                             <h4 class="unicase-checkout-title">
-                                <a data-toggle="collapse" class="collapsed" id="collapseTwo22" data-parent="#accordion" href="index.htm#collapseTwo2">
+                                <a data-toggle="collapse" class="collapsed" id="collapseTwo22" data-parent="#accordion" href="#collapseTwo2">
                                     <span>#</span>Regisration
                                 </a>
                             </h4>
@@ -196,7 +261,7 @@
                         <div class="panel panel-default checkout-step-03">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
-                                <a data-toggle="collapse" class="{{($tab==2)?'':'collapsed'}}" id="collapse_three" data-parent="#accordion" href="index.htm#collapseThree">
+                                <a data-toggle="collapse" class="{{($tab==2)?'':'collapsed'}}" id="collapse_three" data-parent="#accordion" href="#collapseThree">
                                     <span>3</span>Shipping Information
                                 </a>
                               </h4>
@@ -266,7 +331,7 @@
                         <div class="panel panel-default checkout-step-04">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
-                                <a data-toggle="collapse" class="{{($tab==3)?'':'collapsed'}}" data-parent="#accordion" href="index.htm#collapseFour">
+                                <a data-toggle="collapse" class="{{($tab==3)?'':'collapsed'}}" data-parent="#accordion" href="#collapseFour">
                                     <span>4</span>Payment Method
                                 </a>
                               </h4> 
@@ -280,7 +345,7 @@
                                             <div class="form-group"> 
                                                 <input class="form-control  " id="cod" placeholder="" type="hidden" value="cod">Cash On delivery
                                             </div> 
-                                         <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="index.htm#collapseSix">
+                                         <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
                                           <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Continue</button></a>
                                         </form>
                                     </div>  
@@ -292,7 +357,7 @@
                         <div class="panel panel-default checkout-step-06">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
-                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="index.htm#collapseSix">
+                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
                                     <span>6</span>Order Review
                                 </a>
                               </h4>

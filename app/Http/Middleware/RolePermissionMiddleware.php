@@ -36,11 +36,11 @@ class RolePermissionMiddleware
             $permission = $role?(array) json_decode($role->permission):[];
 
             $hide = ['Coupan' => 'hide',
-                'Setting'     => 'hide',
-                'Transaction' => 'hide',
+             //   'Setting'     => 'hide',
+             //   'Transaction' => 'hide',
                 'Contact'     => 'hide',
                 'ClientUsers' => 'hide',
-                'Users'       => 'hide',
+             //   'Users'       => 'hide',
                 'Publisher'   => 'hide',
                 'Report'      => 'hide',
             ];
@@ -57,8 +57,8 @@ class RolePermissionMiddleware
                 $sub_page_title = '403';
                 $page_action    = '403';
                 $hide['Report'] = 'hide';
-                View::share('hide', ($hide));
-                $route_url = Route::getCurrentRoute()->getPath();
+                View::share('hide', ($hide)); 
+                $route_url = Route::getCurrentRoute()->uri();
 
                 return view('packages::errors.403', compact('route_url', 'heading', 'page_title', 'hide', 'page_action', 'sub_page_title'));
             }
@@ -104,7 +104,7 @@ class RolePermissionMiddleware
             if ($validAccess) {
                 return $next($request);
             } else {
-                $route_url = Route::getCurrentRoute()->getPath();
+                $route_url = Route::getCurrentRoute()->uri();
 
                 return view('packages::errors.403', compact('route_url', 'heading', 'page_title', 'page_action', 'sub_page_title'));
             }
