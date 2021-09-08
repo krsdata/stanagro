@@ -28,8 +28,14 @@
     <link rel="stylesheet" href="{{ asset('public/agro/assets/css/nouislider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/agro/assets/css/nouislider.pips.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('public/enduser/assets/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/enduser/assets/css/owl.transitions.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/enduser/assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/enduser/assets/css/rateit.css') }}">
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('public/agro/assets/css/main.css') }}">
+    <!-- Icons/Glyphs -->
+    <link rel="stylesheet" href="{{ asset('public/enduser/assets/css/font-awesome.css')}}">
 </head>
 
 <body>

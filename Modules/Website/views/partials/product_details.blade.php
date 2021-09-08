@@ -88,7 +88,7 @@
 
 				<div class="stock-container info-container m-t-10">
 					<div class="row">
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<div class="stock-box">
 								<span class="label">Availability :</span>
 							</div>	
@@ -151,17 +151,17 @@
 							<div class="cart-quantity">
 								<div class="quant-input">
 					                
-					                <input value="1" type="number" min="1" onchange="updateCart(this.value)">
+					                <input style="width:50px;" value="1" type="number" min="1" onchange="updateCart(this.value)">
 				              </div> 
 				            </div>
 						</div>
 
-						<div class="col-sm-2" style="margin-right: 70px;">
+						<div class="col-sm-5">
 							<a href="{{ url(str_slug($product->product_title,'-').'/addToCart/'.$product->id) }}" id="addToCart" class="btn btn-primary">
                             <i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
 						</div>
                         | 
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style="padding:0px;">
                             <a href="{{ url(str_slug($product->product_title,'-').'/buyNow/'.$product->id) }}" class="btn btn-success">
                             <i class="fa fa-shopping-cart inner-right-vs"></i> BUY </a>
                         </div>

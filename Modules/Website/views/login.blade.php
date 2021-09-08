@@ -25,7 +25,7 @@
 .pull-right {
     float: right!important;
 }
-form{display:table;}
+
 .panel-heading {
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
@@ -43,6 +43,7 @@ form{display:table;}
 @media (min-width: 992px)
 {.col-md-8 {
     width: 66.66666667%;
+    float: none !important;
 }}
  </style>
 

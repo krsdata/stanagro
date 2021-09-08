@@ -2,7 +2,7 @@
 	<div class="sidebar-module-container">
 			 
     <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
-      <h3 class="section-title">hot deals </h3>
+      <h3 class="section-title">Hot deals </h3>
       <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
         
        @foreach($hot_products as $result)

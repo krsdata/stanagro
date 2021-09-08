@@ -148,6 +148,7 @@
 
     <script src="{{ asset('public/agro/assets/js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('public/agro/assets/js/bootstrap.bundle.min.js') }}"></script>
+     <script src="{{ asset('public/enduser/assets/js/owl.carousel.min.js') }}"></script> 
     <script src="{{ asset('public/agro/assets/js/swiper.min.js') }}"></script>
     <script src="{{ asset('public/agro/assets/js/jquery.ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('public/agro/assets/js/jquery.magnific-popup.min.js') }}"></script>
@@ -163,6 +164,8 @@
 
     <!-- template js -->
     <script src="{{ asset('public/agro/assets/js/theme.js') }}"></script>
+    <script src="{{ asset('public/enduser/assets/js/scripts.js') }}"></script>
+    
 </body>
 
 </html>
