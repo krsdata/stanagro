@@ -234,7 +234,7 @@
 
         Route::post('login',function(App\User $user , Illuminate\Http\Request $request){ 
 
-          $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];  
+            $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];  
            
               if (Auth::attempt($credentials)) {
                  $request->session()->put('current_user',Auth::user());
@@ -253,7 +253,7 @@
 
         Route::post('Ajaxlogin',function(App\User $user , Illuminate\Http\Request $request){ 
            
-          $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];  
+            $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];  
 
               if (Auth::attempt($credentials)) {
                  $request->session()->put('current_user',Auth::user());
