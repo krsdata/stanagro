@@ -453,12 +453,18 @@ class ProductController extends Controller {
     {
         $user_id    = $this->user_id;
         $cart       = Cart::content();
+         $billing    = ShippingBillingAddress::where('user_id',$this->user_id)->where('address_type',1)->first();
+        $shipping   = ShippingBillingAddress::where('user_id',$this->user_id)->where('address_type',1)->first(); 
 
         if($cart->count()==0)
         {
            return  Redirect::to('checkout');
         }
         if($user_id=="")
+        {
+           return  Redirect::to('confirm-order');
+        }
+        if($shipping==null)
         {
            return  Redirect::to('confirm-order');
         }
@@ -469,6 +475,7 @@ class ProductController extends Controller {
 
         $billing    = ShippingBillingAddress::where('user_id',$this->user_id)->where('address_type',1)->first();
         $shipping   = ShippingBillingAddress::where('user_id',$this->user_id)->where('address_type',1)->first(); 
+
 
         foreach ($cart as $key => $result) {
 
