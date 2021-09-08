@@ -1,7 +1,76 @@
+<style>
+.panel-w{
+    width: 100%;
+    float: left;
+}
+.body-content{margin:50px 0px;}
+.checkout-box .panel-group .panel {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    padding: 20px;
+    border: none;
+}
+.panel-heading {
+    padding: 10px 15px !important;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-group {
+    margin-bottom: 20px;
+}
+.checkout-box .checkout-steps .panel .panel-heading, .checkout-box .checkout-progress-sidebar .panel .panel-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    text-transform: uppercase;
+    padding: 0px;
+    border: none;
+}
+.checkout-box .checkout-steps .panel .panel-heading, .checkout-box .checkout-progress-sidebar .panel .panel-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    text-transform: uppercase;
+    padding: 0px;
+    border: none;
+}
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title {
+    margin: 0px !important;
+    font-size: 13px;
+    font-weight: bold;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title {
+    margin: 0px !important;
+    font-size: 13px;
+    font-weight: bold;
+}
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title > a:not(.collapsed) span {
+    background-color: #F5F5F5;
+    padding: 10px; 
+}
+.checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title a {
+    color: #555;
+    text-transform: uppercase;
+    display: block;
+}
  
+</style>
 
-
-@extends('layouts.master')
+@extends('website::layouts.master')
     @section('title', 'HOME')
         
         @section('header')
@@ -10,78 +79,400 @@
 
         @section('content') 
 
-            @include('partials.menu')
+            @include('website::partials.menu')
             <!-- Left side column. contains the logo and sidebar -->
-             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Login  <a href="{{ url('myaccount/signup') }}" class="pull-right" >SignUp</a></div>
-                        <div class="panel-body">
+            <div class="body-content">
+    <div class="container">
+        <div class="checkout-box ">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel-group checkout-steps" id="accordion">
+ 
 
-                            @if($errors->has())
-                            <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                            <p> {{ $error }} </p>
-                            @endforeach
+ @if($userData==null)                       <!-- checkout-step-01  -->
+<div class="panel panel-default checkout-step-01">
+
+    <!-- panel-heading -->
+        <div class="panel-heading">
+        <h4 class="unicase-checkout-title"> 
+            <a  data-toggle="collapse" class="{{ ($tab==0)?'':'collapse'}}"  data-parent="#accordion" href="#collapseOne">
+            <span>#</span>Checkout Method
+            </a>
+         </h4>
+    </div>
+    <!-- panel-heading -->
+
+    <div id="collapseOne" class="panel-collapse collapse {{ ($tab==0)?'in':''}}">
+
+        <!-- panel-body  -->
+        <div class="panel-body">
+            <div class="row">       
+
+                <!-- guest-login -->            
+                <div class="col-md-6 col-sm-6 guest-login">
+                    <h4 class="checkout-subtitle">Guest or Register Login</h4>
+                    <p class="text title-tag-line">Register with us for future convenience:</p>
+
+                    <!-- radio-form  -->
+                    <form class="register-form" role="form">
+                        <div class="radio radio-checkout-unicase">  
+                            
+                          
+                            <input id="register" name="text" value="register" type="radio" checked="checked">  
+                            <label class="radio-button" for="register">Register</label>  
+                        </div>  
+                    </form>
+                    <!-- radio-form  -->
+
+                    <h4 class="checkout-subtitle outer-top-vs">Register and save time</h4>
+                    <p class="text title-tag-line ">Register with us for future convenience:</p>
+                    
+                    <ul class="text instruction inner-bottom-30">
+                        <li class="save-time-reg">- Fast and easy check out</li>
+                        <li>- Easy access to your order history and status</li>
+                    </ul>
+                     <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo2">
+                    <button   type="button" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Continue</button> </a>
+                </div>
+                <!-- guest-login -->
+
+                <!-- already-registered-login -->
+                <div class="col-md-6 col-sm-6 already-registered-login">
+                    <h4 class="checkout-subtitle">Already registered?</h4> 
+
+                       <form method="POST" action="{{ url('Ajaxlogin') }}"  class="form-horizontal" role="form">
+                        {!! csrf_field() !!}
+                        <div class="form-group">
+                        <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                        <input class="form-control unicase-form-control text-input" name="email" id="exampleInputEmail1" placeholder="" type="email">
+                      </div>
+                      <div class="form-group">
+                        <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
+                        <input class="form-control unicase-form-control text-input" name="password" id="exampleInputPassword1" placeholder="" type="password">
+                        <a href="#" class="forgot-password">Forgot your Password?</a>
+                      </div>
+                      <button type="button"  onclick="loginBtn()" class="btn-upper btn btn-primary checkout-page-button" >Login</button>
+                      <span id="loginError" style="color: red"></span>
+                    </form>
+                </div>  
+                <!-- already-registered-login -->       
+
+            </div>          
+        </div>
+        <!-- panel-body  -->
+
+    </div><!-- row -->
+</div>
+
+                    <div class="panel panel-default checkout-step-022 closeREG panel-w" id="register">
+                        <div class="panel-heading">
+                            <h4 class="unicase-checkout-title">
+                                <a data-toggle="collapse" class="collapsed" id="collapseTwo22" data-parent="#accordion" href="#collapseTwo2">
+                                    <span># </span> Regisration
+                                </a>
+                            </h4>
+                    </div>
+
+                    <div id="collapseTwo2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                    <div class="col-md-6 col-sm-6 already-registered-login"> 
+                                        <form class="register-form" role="form" id="register">
+                                              {!! csrf_field() !!}
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">First Name <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="" type="text" name="first_name">
+                                            </div> 
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">Last Name <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="" type="text" name="last_name">
+                                            </div> 
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="" type="email" name="email">
+                                            </div>
+                                          <div class="form-group">
+                                            <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
+                                            <input class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="" name="password" type="password">
+                                             
+                                          </div>
+
+                                          <div class="form-group">
+                                            <label class="info-title" for="exampleInputPassword1">Confirm Password <span>*</span></label>
+                                            <input class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="" name="confirm_password" type="password">
+                                             
+                                          </div> 
+                                          
+                                          <button type="button" onclick="signUp()"  class="btn-upper btn btn-primary checkout-page-button">Continue</button> 
+
+                                        </form>
+                                        <span id="regErr" style="color: red"></span>
+                                    </div>  
                             </div>
-                            @endif 
-
-                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                                {{ csrf_field() }}
-
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                                    <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                        @if ($errors->has('email'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="password" class="col-md-4 control-label">Password</label>
-
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control" name="password">
-
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="remember"> Remember Me
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-btn fa-sign-in"></i> Login
-                                        </button>
-
-                                       
-                                        <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
+@endif
+<!-- checkout-step-01  -->
+                        <!-- checkout-step-02  -->
+
+                  
+                   
+
+                    <div class="panel panel-default checkout-step-02 panel-w">
+                        <div class="panel-heading">
+                            <h4 class="unicase-checkout-title">
+                                <a data-toggle="collapse" class="{{($tab==1)?'':'collapsed'}}"  id="" data-parent="#accordion" href="#collapseTwo" id="collapsed_biling">
+                                    <span># </span>Shipping Information  
+                                </a>
+                            </h4> 
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse {{($tab==1)?'in':''}}">
+                            <div class="panel-body">
+                                     <div class="col-md-6 col-sm-6 already-registered-login"> 
+                                        <form method="post" class="register-form" role="form" id="billing" action="{{route('billing')}}"> 
+                                              {!! csrf_field() !!}
+                                              <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">Name <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="name" placeholder="" value="{{$billing->name or ''}}" type="text" name="name" required="required">
+                                            </div> 
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="" value="{{$billing->email or ''}}" type="email" name="email" required="required">
+                                            </div>
+                                          <div class="form-group">
+                                            <label class="info-title" for="exampleInputPassword1">Phone/Mobile <span>*</span></label>
+                                            <input class="form-control unicase-form-control text-input" name="mobile" id="mobile" placeholder="" value="{{$billing->mobile or ''}}" type="text">
+                                             
+                                          </div> 
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputPassword1"> Address
+                                                <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="" value="{{$billing->address1 or ''}}"  name="address1" type="text"> 
+                                            </div>
+                                                   
+                                          <button type="submit" class="btn-upper btn btn-primary checkout-page-button" onclick="billing()">Continue</button> 
+                                        </form>
+                                    </div>  
+                            </div>
+                        </div>
+                    </div> 
+
+                        <!-- checkout-step-02  -->
+
+                        <!-- checkout-step-03  -->
+                    <!-- div class="panel panel-default checkout-step-03 panel-w">
+                            <div class="panel-heading">
+                              <h4 class="unicase-checkout-title">
+                                <a data-toggle="collapse" class="{{($tab==2)?'':'collapsed'}}" id="collapse_three" data-parent="#accordion" href="#collapseThree">
+                                    <span>3</span>Shipping Information
+                                </a>
+                              </h4>
+                            </div>
+                        <div id="collapseThree" class="panel-collapse collapse {{($tab==2)?'in':''}}">
+                              <div class="panel-body">
+                                   <div class="col-md-6 col-sm-6 already-registered-login" id="shopping"> 
+                                        <form method="post" class="register-form" role="form" id="billing" action="{{route('shipping')}}">  
+                                            {!! csrf_field() !!}
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">Name <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="name" placeholder="" value="{{$shipping->name or ''}}" type="text" name="name" required="required">
+                                            </div> 
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="" value="{{$shipping->email or ''}}" type="email" name="email" required="required">
+                                            </div>
+                                          <div class="form-group">
+                                            <label class="info-title" for="exampleInputPassword1">Phone/Mobile <span>*</span></label>
+                                            <input class="form-control unicase-form-control text-input" name="mobile" id="mobile" placeholder="" value="{{$shipping->mobile or ''}} "type="text">
+                                             
+                                          </div>
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="zip_code"> Pin Code
+                                                <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="zip_code" placeholder=""  value="{{$shipping->zip_code or '' }}" name="zip_code" type="text">  
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="city"> City
+                                                <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="city" placeholder="" type="text" name="city" value="{{$shipping->city or '' }}"> 
+                                            </div>
+ 
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="state"> State
+                                                <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="state" placeholder="state" value="{{$shipping->state or ''}}" name="state" type="text"> 
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="info-title" for="exampleInputPassword1"> Address1
+                                                <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="" value="{{$shipping->address1 or '' }}"" type="text" name="address1"> 
+                                            </div>
+
+                                               <div class="form-group">
+                                                <label class="info-title" for="exampleInputPassword1"> Address2
+                                                <span>*</span></label>
+                                                <input class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="" value="{{$shipping->address2 or '' }}"" type="text" name="address2"> 
+                                            </div>
+                                    
+                                          <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Continue</button>
+                                        </form>
+                                    </div>  
+                              </div>
+                            </div>
+                    </div> -->
+                        <!-- checkout-step-03  -->
+
+                        <!-- checkout-step-04  -->
+                        <div class="panel panel-default checkout-step-04 panel-w">
+                            <div class="panel-heading">
+                              <h4 class="unicase-checkout-title">
+                                <a data-toggle="collapse" class="{{($tab==3)?'':'collapsed'}}" data-parent="#accordion" href="#collapseFour">
+                                    <span># </span>Payment Method 
+                                </a>
+                              </h4> 
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse {{($tab==3)?'in':''}}">
+                                <div class="panel-body">
+                                  <div class="col-md-6 col-sm-6 already-registered-login"> 
+                                        <form method="post" class="register-form" role="form" id="billing" action="{{route('shippingMethod')}}">  
+                                            {!! csrf_field() !!}
+                                            
+                                            <div class="form-group"> 
+                                                <input class="form-control  " id="cod" placeholder="" type="hidden" value="cod">Cash On delivery
+                                            </div> 
+                                         <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
+                                          <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Continue</button></a>
+                                        </form>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div> 
+
+                        <!-- checkout-step-06  -->
+                        <div class="panel panel-default checkout-step-06 panel-w">
+                            <div class="panel-heading">
+                              <h4 class="unicase-checkout-title">
+                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
+                                    <span># </span>Order Review
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                            <div class="">
+                        <div class="shopping-cart">
+                            <div class="shopping-cart-table ">
+                                <div class="table-responsive">
+                                 @if(count($cart))
+                                    <table class="table">
+                                        <thead>
+                                                <tr>
+                                            <th class="cart-product-name item">Product Name</th>
+                                            <th class="cart-edit item">Price</th>
+                                            <th class="cart-qty item">Quantity</th>
+                                            <th class="cart-sub-total item">Subtotal</th> 
+                                        </tr>
+                                        </thead><!-- /thead -->
+                              
+                                     <tbody>
+                                        @foreach($cart as  $item)
+                                        <tr> 
+                                            <td class="cart_description">
+                                                    <h4><a href="">{{$item->name}}</a></h4> 
+                                            </td>
+                                            <td class="cart_price">
+                                                <p>₹ {{$item->price}}</p>
+                                            </td>
+                                            <td class="cart_quantity">
+                                                <div class="cart_quantity_button">
+                                                    {{$item->qty}} 
+                                                    
+                                                </div>
+                                            </td>
+                                            <td class="cart_total">
+                                                <p class="cart_total_price">₹ {{ round($item->subtotal,2) }}</p>
+                                            </td>  
+                                        </tr> 
+                                        @endforeach
+                                    @else
+                                <p>You have no items in the shopping cart</p>
+                                @endif
+                                </tbody>
+                            </table><!-- /table -->
+                        </div>
+                        <hr>
+                    </div><!-- /.shopping-cart-table -->                
+                   
+ 
+
+                        <div class="col-md-12 col-sm-12 cart-shopping-total">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="cart-sub-total">
+                                                <span class="inner-left-md">Subtotal ₹ {{$sub_total}} </span>
+                                            </div>
+                                            <div class="cart-grand-total">
+                                                <span class="inner-left-md">Total ₹ {{$sub_total}} </span>
+                                            </div>
+                                             <div class="cart-grand-total">
+                                             <br><br>
+                                               <a href="{{url('orderSuccess')}}" class="btn btn-primary">Place Order</a>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead><!-- /thead -->
+
+                            </table><!-- /table -->
+                        </div><!-- /.cart-shopping-total -->            
+                    </div><!-- /.shopping-cart -->
+                </div> <!-- /.row -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-06  -->
+                        
+                    </div><!-- /.checkout-steps -->
                 </div>
-            </div>
- 
-        @stop
- 
+                <div class="col-md-4">
+                    <!-- checkout-progress-sidebar -->
+                <div class="checkout-progress-sidebar ">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">Your Checkout Progress</h4>
+                            </div> 
+                            <div class="">
+                                <ul class="nav nav-checkout-progress list-unstyled">
+                                 <li> Total Amount  :  ₹{{ $sub_total }} <li><br>
+                                  <li> Total Item  :  {{ $total_item }} </li> <br>
+                               
+                                </ul>  
+                                 <a href="{{url('/')}}" class="btn btn-success">Continue Shopping</a> 
+                                  <a href="{{url('orderSuccess')}}" class="btn btn-primary">Place Order</a>   
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+<!-- checkout-progress-sidebar -->              </div>
+            </div><!-- /.row -->
+            </div><!-- /.checkout-box -->
+            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+            <!-- /.logo-slider -->
+            <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->    </div><!-- /.container -->
+        </div>
+
+            
+    @stop

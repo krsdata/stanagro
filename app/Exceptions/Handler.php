@@ -49,10 +49,7 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-    { 
-        dd($exception);
-        
-
+    {  
         if($exception instanceof Exception ){
             return Redirect::to('page/page-not-found');
         }

@@ -9,10 +9,17 @@
         @section('content') 
 
             @include('website::partials.menu')
+        <style type="text/css">
+            
+            .panel{
+                float: left;
+                width: 100%;
+            }
+        </style>
             <!-- Left side column. contains the logo and sidebar -->
             <div class="body-content">
     <div class="container">
-        <div class="checkout-box ">
+        <div class="checkout-box " style="margin-top: 100px; margin-bottom: 100px;">
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel-group checkout-steps" id="accordion">
@@ -60,19 +67,13 @@
 
     </div><!-- row -->
 </div>
-
  
-<!-- checkout-step-01  -->
-                        <!-- checkout-step-02  -->
-
-                  
-                   
 
                     <div class="panel panel-default checkout-step-02">
                         <div class="panel-heading">
                             <h4 class="unicase-checkout-title">
                                 <a data-toggle="collapse" class="{{($tab==1)?'':'collapsed'}}"  id="" data-parent="#accordion" href="#collapseTwo" id="collapsed_biling">
-                                    <span>2</span>Billing Information  
+                                    <span># </span>Shipping Information  
                                 </a>
                             </h4> 
                         </div>
@@ -111,80 +112,15 @@
                         <!-- checkout-step-02  -->
 
                         <!-- checkout-step-03  -->
-                        <div class="panel panel-default checkout-step-03">
-                            <div class="panel-heading">
-                              <h4 class="unicase-checkout-title">
-                                <a data-toggle="collapse" class="{{($tab==2)?'':'collapsed'}}" id="collapse_three" data-parent="#accordion" href="index.htm#collapseThree">
-                                    <span>3</span>Shipping Information
-                                </a>
-                              </h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse {{($tab==2)?'in':''}}">
-                              <div class="panel-body">
-                                   <div class="col-md-6 col-sm-6 already-registered-login" id="shopping"> 
-                                        <form method="post" class="register-form" role="form" id="billing" action="{{route('shipping')}}">  
-                                            {!! csrf_field() !!}
-                                            <div class="form-group">
-                                                <label class="info-title" for="exampleInputEmail1">Name <span>*</span></label>
-                                                <input class="form-control unicase-form-control text-input" id="name" placeholder="" value="{{$shipping->name or ''}}" type="text" name="name" required="required">
-                                            </div> 
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-                                                <input class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="" value="{{$shipping->email or ''}}" type="email" name="email" required="required">
-                                            </div>
-                                          <div class="form-group">
-                                            <label class="info-title" for="exampleInputPassword1">Phone/Mobile <span>*</span></label>
-                                            <input class="form-control unicase-form-control text-input" name="mobile" id="mobile" placeholder="" value="{{$shipping->mobile or ''}} "type="text">
-                                             
-                                          </div>
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="zip_code"> Pin Code
-                                                <span>*</span></label>
-                                                <input class="form-control unicase-form-control text-input" id="zip_code" placeholder=""  value="{{$shipping->zip_code or '' }}" name="zip_code" type="text">  
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="city"> City
-                                                <span>*</span></label>
-                                                <input class="form-control unicase-form-control text-input" id="city" placeholder="" type="text" name="city" value="{{$shipping->city or '' }}"> 
-                                            </div>
- 
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="state"> State
-                                                <span>*</span></label>
-                                                <input class="form-control unicase-form-control text-input" id="state" placeholder="state" value="{{$shipping->state or ''}}" name="state" type="password"> 
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="exampleInputPassword1"> Address1
-                                                <span>*</span></label>
-                                                <input class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="" value="{{$shipping->address1 or '' }}"" type="text" name="address1"> 
-                                            </div>
-
-                                               <div class="form-group">
-                                                <label class="info-title" for="exampleInputPassword1"> Address2
-                                                <span>*</span></label>
-                                                <input class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="" value="{{$shipping->address2 or '' }}"" type="text" name="address2"> 
-                                            </div>
-                                     
-                                        </form>
-                                    </div>  
-                              </div>
-                            </div>
-                        </div>
+                         
                         <!-- checkout-step-03  -->
 
                         <!-- checkout-step-04  -->
                         <div class="panel panel-default checkout-step-04">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
-                                <a data-toggle="collapse" class="{{($tab==3)?'':'collapsed'}}" data-parent="#accordion" href="index.htm#collapseFour">
-                                    <span>4</span>Payment Method
+                                <a data-toggle="collapse" class="{{($tab==3)?'':'collapsed'}}" data-parent="#accordion" href="#collapseFour">
+                                    <span># </span>Payment Method
                                 </a>
                               </h4> 
                             </div>
@@ -208,14 +144,14 @@
                         <div class="panel panel-default checkout-step-06">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
-                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="index.htm#collapseSix">
-                                    <span>6</span>My Order 
+                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
+                                    <span>#</span> My Order 
                                 </a>
                               </h4>
                             </div>
                             <div id="collapseSix" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                            <div class="">
+                        <div class="panel-body">
+                        <div class="">
                         <div class="shopping-cart">
                             <div class="shopping-cart-table ">
                                 <div class="table-responsive">
@@ -223,16 +159,21 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th class="cart-product-name item">Product Name</th>
-                                            <th class="cart-edit item">Price</th>   
-                                            <th class="cart-sub-total item">Date</th> 
-                                             <th class="cart-sub-total item">Payment Method</th> 
+                                            <th class="cart-product-name ">Srn</th>
+                                            <th class="cart-product-name ">Product</th>
+                                            <th class="cart-edit ">Price</th>   
+                                            <th class="cart-sub-total ">Date</th> 
+                                             <th class="cart-product-name ">Payment Mode</th> 
                                         </tr>
-                                        </thead><!-- /thead -->
+                                        </thead>
                               
                                      <tbody>
-                                        @foreach($transaction as  $item)
+                                        
+                                        @foreach($transaction as $key =>  $item)
                                         <tr> 
+                                             <th class="cart_price">
+                                                <p>{{ ++$key }}</p>
+                                            </th>
                                             <th class="cart_description">
                                                     <h4><a href="">{{$item->product_name}}</a></h4> 
                                             </th>
@@ -252,9 +193,8 @@
                                 @endif
                                 </tbody>
                             </table><!-- /table -->
-                        </div>
-                        <hr>
-                    </div><!-- /.shopping-cart-table -->                
+                        </div> 
+                        </div><!-- /.shopping-cart-table -->                
                    
  
 

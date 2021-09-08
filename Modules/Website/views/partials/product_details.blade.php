@@ -17,6 +17,9 @@
 .tab-content {
      padding-left: 0px; 
 }
+.price-strike{
+	
+}
 </style>
 
 
@@ -115,8 +118,8 @@
 							<div class="price-box">
 								<span class="price">₹{{$product->price-($product->price*$product->discount/100)}}</span> 
 								 @if( $dp!=$product->price)
-								 <span class="price-strike">
-                              ₹ {{$product->price}} </span> 
+								 <del class="price-strike">
+                              ₹ {{$product->price}} </del> 
                               @endif
                                @if($product->discount!=0)
                               {{$product->discount}}% <span style="color:green">Off</span> 
@@ -131,9 +134,9 @@
 								    <i class="fa fa-heart"></i>
 								</a>
 								 
-								<a data-original-title="E-mail" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="" href="index.htm#">
+								<!-- <a data-original-title="E-mail" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="" href="index.htm#">
 								    <i class="fa fa-envelope"></i>
-								</a>
+								</a> -->
 							</div>
 						</div>
 
@@ -160,7 +163,7 @@
 							<a href="{{ url(str_slug($product->product_title,'-').'/addToCart/'.$product->id) }}" id="addToCart" class="btn btn-primary">
                             <i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
 						</div>
-                        | 
+                         
                         <div class="col-sm-2" style="padding:0px;">
                             <a href="{{ url(str_slug($product->product_title,'-').'/buyNow/'.$product->id) }}" class="btn btn-success">
                             <i class="fa fa-shopping-cart inner-right-vs"></i> BUY </a>

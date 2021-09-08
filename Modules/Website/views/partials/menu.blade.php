@@ -4,6 +4,9 @@
     display: inline-block;
     color: #fff;
 }
+ul {
+    list-style-type: none;
+}
 .agrikon-icon-shopping-cart{color:#255946;}
 .btn-primary:hover {
     color: #fff;
@@ -51,8 +54,8 @@
                         @if($userData==null)
                          <a href="{{ url('signup') }}"><i class="agrikon-icon-phone"></i>Login</a>
                            @else
-                          <li><a href="{{ url('myaccount') }}">My Account</a></li>  
-                         <li> <a href="{{url('signout')}}">Logout</a> </li>
+                          <a href="{{ url('myaccount') }}">My Account</a>  
+                          <a href="{{url('signout')}}">Logout</a> 
                           @endif
                         <a href="#"><i class="agrikon-icon-email"></i>stanagroventures@gmail.com</a>
                         <a href="#"><i class="agrikon-icon-phone"></i>074834 77692</a>

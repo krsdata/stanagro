@@ -32,7 +32,10 @@
             @include('website::partials.menu')
               @include('website::partials.breadcrumb')
             <!-- Left side column. contains the logo and sidebar -->
-            <div class="checkout-page">
+            <div class="checkout-page" style="margin-top: 100px; margin-bottom: 100px; border: 4px solid #49A760;">
+                <div style="padding:15px">
+                   <b> Order Summary: </b>
+                </div>
                 <div class="shopping-cart">
                     <div class="shopping-cart-table ">
                         <div class="table-responsive">
@@ -40,8 +43,8 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="cart-romove item">Remove</th>
-                                        <th class="cart-description item">Image</th>
+                                        <th class="cart-romove item">Remove Product</th>
+                                        <th class="cart-description item">Product Image</th>
                                         <th class="cart-product-name item">Product Name</th>
                                         <th class="cart-edit item">Price</th>
                                         <th class="cart-qty item">Quantity</th>
@@ -104,7 +107,7 @@
                         </div>
                         <hr>
                     </div><!-- /.shopping-cart-table -->                
-                    <div class="col-md-4 col-sm-12 estimate-ship-tax">
+                    <div class="col-md-4 col-sm-12 estimate-ship-tax" style="visibility:hidden;">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -128,16 +131,16 @@
                         
                     </div><!-- /.estimate-ship-tax -->
 
-                    <div class="col-md-4 col-sm-12 cart-shopping-total">
+                    <div class="col-md-4 col-sm-12 cart-shopping-total" style="float:right;">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>
                                         <div class="cart-sub-total">
-                                            <span class="inner-left-md">Subtotal RS {{$sub_total}} </span>
+                                            <span class="inner-left-md">Subtotal ₹ {{$sub_total}} </span>
                                         </div>
                                         <div class="cart-grand-total">
-                                            <span class="inner-left-md">Total RS {{$sub_total}} </span>
+                                            <span class="inner-left-md">Total ₹ {{$sub_total}} </span>
                                         </div>
                                     </th>
                                 </tr>

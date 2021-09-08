@@ -1,4 +1,8 @@
 <style>
+.panel-w{
+    width: 100%;
+    float: left;
+}
 .body-content{margin:50px 0px;}
 .checkout-box .panel-group .panel {
     -webkit-border-radius: 0px !important;
@@ -55,13 +59,15 @@
     font-weight: bold;
 }
 .checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title > a:not(.collapsed) span {
-    background-color: #085b9a;
+    background-color: #F5F5F5;
+    padding: 10px; 
 }
 .checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title a {
     color: #555;
     text-transform: uppercase;
     display: block;
 }
+ 
 </style>
 
 @extends('website::layouts.master')
@@ -90,7 +96,7 @@
         <div class="panel-heading">
         <h4 class="unicase-checkout-title"> 
             <a  data-toggle="collapse" class="{{ ($tab==0)?'':'collapse'}}"  data-parent="#accordion" href="#collapseOne">
-              <span>1</span>Checkout Method
+            <span>#</span>Checkout Method
             </a>
          </h4>
     </div>
@@ -110,9 +116,8 @@
                     <!-- radio-form  -->
                     <form class="register-form" role="form">
                         <div class="radio radio-checkout-unicase">  
-                            <input id="guest" name="text" value="guest" checked="" type="radio">  
-                          <!--   <label class="radio-button guest-check" for="guest">Checkout as Guest</label>  
-                              <br> -->
+                            
+                          
                             <input id="register" name="text" value="register" type="radio" checked="checked">  
                             <label class="radio-button" for="register">Register</label>  
                         </div>  
@@ -159,16 +164,16 @@
     </div><!-- row -->
 </div>
 
-  <div class="panel panel-default checkout-step-022 closeREG" id="register">
+                    <div class="panel panel-default checkout-step-022 closeREG panel-w" id="register">
                         <div class="panel-heading">
                             <h4 class="unicase-checkout-title">
                                 <a data-toggle="collapse" class="collapsed" id="collapseTwo22" data-parent="#accordion" href="#collapseTwo2">
-                                    <span>#</span>Regisration
+                                    <span># </span> Regisration
                                 </a>
                             </h4>
                     </div>
 
-                        <div id="collapseTwo2" class="panel-collapse collapse">
+                    <div id="collapseTwo2" class="panel-collapse collapse">
                             <div class="panel-body">
                                     <div class="col-md-6 col-sm-6 already-registered-login"> 
                                         <form class="register-form" role="form" id="register">
@@ -214,11 +219,11 @@
                   
                    
 
-                    <div class="panel panel-default checkout-step-02">
+                    <div class="panel panel-default checkout-step-02 panel-w">
                         <div class="panel-heading">
                             <h4 class="unicase-checkout-title">
                                 <a data-toggle="collapse" class="{{($tab==1)?'':'collapsed'}}"  id="" data-parent="#accordion" href="#collapseTwo" id="collapsed_biling">
-                                    <span>2</span>Billing Information  
+                                    <span># </span>Shipping Information  
                                 </a>
                             </h4> 
                         </div>
@@ -258,7 +263,7 @@
                         <!-- checkout-step-02  -->
 
                         <!-- checkout-step-03  -->
-                        <div class="panel panel-default checkout-step-03">
+                    <!-- div class="panel panel-default checkout-step-03 panel-w">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
                                 <a data-toggle="collapse" class="{{($tab==2)?'':'collapsed'}}" id="collapse_three" data-parent="#accordion" href="#collapseThree">
@@ -266,7 +271,7 @@
                                 </a>
                               </h4>
                             </div>
-                            <div id="collapseThree" class="panel-collapse collapse {{($tab==2)?'in':''}}">
+                        <div id="collapseThree" class="panel-collapse collapse {{($tab==2)?'in':''}}">
                               <div class="panel-body">
                                    <div class="col-md-6 col-sm-6 already-registered-login" id="shopping"> 
                                         <form method="post" class="register-form" role="form" id="billing" action="{{route('shipping')}}">  
@@ -324,15 +329,15 @@
                                     </div>  
                               </div>
                             </div>
-                        </div>
+                    </div> -->
                         <!-- checkout-step-03  -->
 
                         <!-- checkout-step-04  -->
-                        <div class="panel panel-default checkout-step-04">
+                        <div class="panel panel-default checkout-step-04 panel-w">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
                                 <a data-toggle="collapse" class="{{($tab==3)?'':'collapsed'}}" data-parent="#accordion" href="#collapseFour">
-                                    <span>4</span>Payment Method
+                                    <span># </span>Payment Method 
                                 </a>
                               </h4> 
                             </div>
@@ -354,11 +359,11 @@
                         </div> 
 
                         <!-- checkout-step-06  -->
-                        <div class="panel panel-default checkout-step-06">
+                        <div class="panel panel-default checkout-step-06 panel-w">
                             <div class="panel-heading">
                               <h4 class="unicase-checkout-title">
                                 <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
-                                    <span>6</span>Order Review
+                                    <span># </span>Order Review
                                 </a>
                               </h4>
                             </div>

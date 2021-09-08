@@ -184,6 +184,11 @@
           Route::get('login',[
                   'as' => 'login',
                   'uses'  => 'UserController@showLoginForm'
+                ]);
+
+          Route::post('userLogin',[
+                  'as' => 'userLogin',
+                  'uses'  => 'ProductController@userLogin'
                 ]); 
 
         Route::match(['get','post'],'billing',[
@@ -249,28 +254,24 @@
         Route::post('Ajaxlogin',function(App\User $user , Illuminate\Http\Request $request){ 
            
           $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];  
-           
+
               if (Auth::attempt($credentials)) {
                  $request->session()->put('current_user',Auth::user());
                  $request->session()->put('tab',1);
+
+                 if(Input::get('signup')=="signup")
+                 {
+                   echo "1";
+                   exit();
+                 }
                
                   return Redirect::to(url()->previous());
-                   // return  json_encode(['msg'=>'success','code'=>200,'data'=>Auth::user()]); 
               }else{  
                    return  json_encode(['msg'=>'Invalid email or password','code'=>500,'data'=>$request->all()]); 
                    //return Redirect::to(url()->previous());
                   } 
           }); 
-
-
-        
-
-
-       /* Route::get('{name}',[
-                  'as' => 'productcategory',
-                  'uses'  => 'HomeController@mainCategory'
-                ]);
-            */  
+ 
 
         });       
 

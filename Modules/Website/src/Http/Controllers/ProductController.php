@@ -101,6 +101,20 @@ class ProductController extends Controller {
         View::share('category_list',$category_list); 
     }
 
+    public function userLogin(Request $request)
+    {
+       $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];  
+
+              if (Auth::attempt($credentials)) {
+                 $request->session()->put('current_user',Auth::user());
+                 $request->session()->put('tab',1); 
+               
+                  return Redirect::to('myaccount');
+              }else{
+                 return Redirect::to(url()->previous());
+              } 
+    }
+
     public function showLoginForm(Request $request)
     {
         
@@ -440,7 +454,6 @@ class ProductController extends Controller {
         $user_id    = $this->user_id;
         $cart       = Cart::content();
 
-       
         if($cart->count()==0)
         {
            return  Redirect::to('checkout');
@@ -450,11 +463,12 @@ class ProductController extends Controller {
            return  Redirect::to('confirm-order');
         }
 
+        $user_id = Auth::user()->id;
         $products   = Product::with('category')->orderBy('id','asc')->get();
         $categories = Category::nested()->get(); 
 
         $billing    = ShippingBillingAddress::where('user_id',$this->user_id)->where('address_type',1)->first();
-        $shipping   = ShippingBillingAddress::where('user_id',$this->user_id)->where('address_type',2)->first(); 
+        $shipping   = ShippingBillingAddress::where('user_id',$this->user_id)->where('address_type',1)->first(); 
 
         foreach ($cart as $key => $result) {
 
@@ -473,8 +487,9 @@ class ProductController extends Controller {
         $cart = Cart::content(); 
        // dd(Cart::subtotal());
         if($cart){
-
-            $email_content['receipent_email'] = $billing->email;
+             
+            
+            $email_content['receipent_email'] = $billing->email??Auth::user()->email;
             $email_content['subject'] = "Invoice";
             $template = "invoice";
             $template_content = ['cart'=>$cart ,'billing' => $billing , 'shipping' => $shipping,'transaction'=>$transaction];

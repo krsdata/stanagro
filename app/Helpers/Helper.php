@@ -74,7 +74,7 @@ class Helper {
         
         return  Mail::send('emails.'.$template, array('content' => $template_content), function($message) use($email_content)
           {
-            $name = "Admin";
+            $name = "Stan Agro Ventures";
             $message->from('admin@admin.com',$name);  
             $message->to($email_content['receipent_email'])->subject($email_content['subject']);
             
@@ -116,13 +116,13 @@ class Helper {
             $mail->Username   = "support@krsdata.net"; // SMTP account username
             $mail->Password   = "support@123"; 
 
-            $mail->setFrom("support@krsdata.net", "Admin");
-
+            $mail->setFrom("support@krsdata.net", "Stan Agro Ventures");
+            
 
             $mail->Subject = "Invoice";
             $mail->MsgHTML($html);
-            $mail->addAddress($email_content['receipent_email'], "Nuvka");
-            $mail->addAddress("kroy.iips@gmail.com","guruhomeshops");  
+            $mail->addAddress($email_content['receipent_email'], "Stan Agro Ventures");
+            $mail->addAddress("kroy.iips@gmail.com","Stan Agro Ventures");  
             //$mail->addReplyTo(‘examle@examle.net’, ‘Information’);
             //$mail->addBCC(‘examle@examle.net’);
             //$mail->addAttachment(‘/home/kundan/Desktop/abc.doc’, ‘abc.doc’); // Optional name

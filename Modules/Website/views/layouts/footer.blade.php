@@ -26,11 +26,11 @@
                         <div class="footer-widget footer-widget__links-widget">
                             <h3 class="footer-widget__title">Links</h3><!-- /.footer-widget__title -->
                             <ul class="list-unstyled footer-widget__links">
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Training</a></li>
-                                <li><a href="#">Contact</a></li>
+                               <!--  <li><a href="#">About us</a></li> -->
+                                <!-- <li><a href="#">Mushroom</a></li>
+                                 --><li><a href="{{url('services')}}">Services</a></li>
+                                <li><a href="{{url('training')}}">Training</a></li>
+                                <li><a href="{{url('contact')}}">Contact</a></li>
                             </ul><!-- /.list-unstyled -->
                         </div><!-- /.footer-widget -->
                     </div><!-- /.col-sm-12 col-md-6 col-lg-2 -->
@@ -161,10 +161,14 @@
     <script src="{{ asset('public/agro/assets/js/circle-progress.min.js') }}"></script>
     <script src="{{ asset('public/agro/assets/js/wNumb.min.js') }}"></script>
     <script src="{{ asset('public/agro/assets/js/nouislider.min.js') }}"></script>
-
+    <script type="text/javascript">
+          var  url = "{{ url('/') }}";
+        </script>
     <!-- template js -->
     <script src="{{ asset('public/agro/assets/js/theme.js') }}"></script>
-    <script src="{{ asset('public/enduser/assets/js/scripts.js') }}"></script>
+    <!-- <script src="{{ asset('public/enduser/assets/js/scripts.js') }}"></script>
+     --><script src="{{ asset('public/assets/js/bootbox.js') }}"></script>
+    <script src="{{ asset('public/assets/js/common.js') }}"></script> 
     
 </body>
 

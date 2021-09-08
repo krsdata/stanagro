@@ -97,6 +97,35 @@ function loginBtn()
     });
 }
 
+function loginBtnMain()
+{ 
+   var signup = $('#signup').val(); 
+   var formdata =  $('form#loginForm').serialize();
+    
+    $.ajax({
+        type: "POST", 
+        url: url+'/Ajaxlogin',
+        data : formdata,
+
+        beforeSend: function() {
+           //$('#'+id).html('Processing');
+        },
+         dataType: "json",
+        success: function(response) {
+            
+            if(response==1)
+            { 
+                $('form#loginForm').submit();
+                $('#loginError').hide();
+
+            }else
+            {   var msg = response.msg;
+                $('#loginError').html(msg);
+            }
+        }
+    });
+}
+
 function signUp()
 {
     var formdata =  $('form#register').serialize();

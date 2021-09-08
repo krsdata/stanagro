@@ -93,7 +93,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="http://nuvka.in/nuvkalogo.png" width="auto">
+                                <img src="https://bangaloremushroom.com/storage/uploads/img/1624973543logo-removebg-preview.png" width="150px">
                             </td>
                              
                              <td align="right">
@@ -112,9 +112,9 @@
                         <tr>
                             <td>
                           {!! isset($company_address->field_value)?$company_address->field_value:"India" !!} <br>
-                           {{ isset($website_email->field_value)?$website_email->field_value:"info@example.com" }}
+                           {{ isset($website_email->field_value)?$website_email->field_value:"stanagroventures@gmail.com" }}
                            <br>
-                           {{ isset($contact_number->field_value)?$contact_number->field_value:"+91-9827562891" }} 
+                           {{ isset($contact_number->field_value)?$contact_number->field_value:"+91-74834 7762" }} 
 
                             </td>
                              
@@ -167,12 +167,12 @@
                 <td colspan="3">
                 To 
                   <p style="margin-left: 15px">  {{ $data['shipping']->name }}, <br>
-                    {{ $data['shipping']->address1 }},
+                    {{ $data['shipping']->address1 }},<br><!-- 
                     {{ $data['shipping']->address2 }}, <br>
-                    {{ $data['shipping']->city }},
-                    {{ $data['shipping']->state }},
-                    {{ $data['shipping']->zip_code }}, <br>
-                    {{ $data['shipping']->email }},
+                    {{ $data['shipping']->city }}, --><!-- 
+                    {{ $data['shipping']->state }}, --><!-- 
+                    {{ $data['shipping']->zip_code }}, <br> -->
+                    {{ $data['shipping']->email }},<br>
                     {{ $data['shipping']->mobile }} <p>
                 </td>
                  
