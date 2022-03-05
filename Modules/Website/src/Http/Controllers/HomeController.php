@@ -7,6 +7,7 @@ use Auth;
 use Modules\Website\Models\User;
 use Modules\Website\Models\Category;
 use Modules\Website\Models\Product;
+use Modules\Website\Models\Blog;
 use Modules\Website\Models\Transaction;
 use View;
 use Html;
@@ -242,6 +243,25 @@ class HomeController extends Controller
         return view('website::category',compact('categories','products','q','category'));   
     }
     /*----------*/
+
+    public function blog()
+    {   
+     
+       $blogs =  Blog::orderBy('id','desc')->limit(5)->get();                
+          return view('website::blog',compact('blogs')); 
+    }
+
+    public function blogContent(Request $request, $name=null){
+    
+      $blog = Blog::where('slug',$name)->first();
+      $blog_title= ucfirst(($blog->blog_title)??$name);
+      $html = ($blog->blog_description)??'<h1>Record not found</h1>';
+
+      return view('website::blog-detail',compact('blog','blog_title','html'));
+
+    }
+
+
     public function productDetail($subCategoryName=null,$productName=null)
     {   
         
@@ -272,7 +292,7 @@ class HomeController extends Controller
      /*----------*/
     public function faq()
     {
-         $products = Product::with('category')->orderBy('id','asc')->get();
+        $products = Product::with('category')->orderBy('id','asc')->get();
         $categories = Category::nested()->get(); 
         return view('website::faq',compact('categories','products')); 
         return view('website::faq');   
@@ -317,7 +337,13 @@ class HomeController extends Controller
         return view('website::terms-conditions',compact('categories','products')); 
         return view('website::terms-conditions');   
     }
-
+     public function privacy()
+    {
+        $products = Product::with('category')->orderBy('id','asc')->get();
+        $categories = Category::nested()->get(); 
+        return view('website::privacy-policy',compact('categories','products')); 
+        return view('website::privacy-policy');   
+    }
     public function thankYou(Request $request)
     {
         $user_id    = $this->user_id;
@@ -375,7 +401,25 @@ class HomeController extends Controller
 
     }
 
+    public function pageNotFound(Request $request)
+    {
+        
+        return view('website::pageNotFound');
+    }
 
+    public function sendmail(Request $request)
+    { 
+      
+
+            $email_content['receipent_email'] = $request->email;
+            $email_content['subject'] = $request->subject??"Enquiry";
+            $template = "contact_us";
+            $template_content = ['content'=>$request->all()]; 
+          
+            Helper::contactUsEmail($email_content, $template, $template_content);
+
+            return Redirect::to(url('contact?status=1'));
+    }
     public function page(Request $request, $name=null){
     
       $page = Page::where('slug',$name)->first();

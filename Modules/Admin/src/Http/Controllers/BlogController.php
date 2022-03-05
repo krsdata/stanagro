@@ -100,9 +100,11 @@ class BlogController extends Controller
      * */
 
     public function store(BlogRequest $request, Blogs $blog)
-    {
+    {   
+        
         if ($request->file('blog_image')) {
             $photo           = $request->file('blog_image');
+
             $destinationPath = storage_path('blog');
             $photo->move($destinationPath, time() . $photo->getClientOriginalName());
             $blog_image         = time() . $photo->getClientOriginalName();
@@ -132,7 +134,7 @@ class BlogController extends Controller
         $blog->blog_title         =   $request->get('blog_title');
         $blog->blog_description   =   $request->get('blog_description');
         $blog->blog_created_by    = $request->get('blog_created_by');
-
+        
         $blog->save();
 
         return Redirect::to('admin/blog')
@@ -144,15 +146,16 @@ class BlogController extends Controller
      * object : $category
      * */
 
-    public function edit(Blogs $blog)
+    public function edit(Blogs $blog, $id)
     {
+        $blog = Blogs::find($id);
         $page_title     = 'Blog';
         $page_action    = 'Edit Blog';
         $categories     = Category::all();
         $type           = ['Stories' => 'Stories','News' => 'News','Tips' => 'Tips'];
-        $category_id    = explode(',', $blog->blog_category);
 
-        return view('packages::blog.edit', compact('blog', 'banner', 'page_title', 'page_action', 'categories', 'type', 'category_id'));
+
+        return view('packages::blog.edit', compact('blog', 'page_title', 'page_action', 'categories', 'type'));
     }
 
     public function update(BlogRequest $request, Blogs $blog)

@@ -1,3 +1,7 @@
+<style>
+.main-menu .main-menu__list > li + li{margin-left:40px !important;}
+</style>
+
  <footer class="site-footer">
             <img src="assets/images/icons/footer-bg-icon-1.png" class="site-footer__shape-1" alt="">
             <img src="assets/images/icons/footer-bg-icon-2.png" class="site-footer__shape-2" alt="">
@@ -26,9 +30,9 @@
                         <div class="footer-widget footer-widget__links-widget">
                             <h3 class="footer-widget__title">Links</h3><!-- /.footer-widget__title -->
                             <ul class="list-unstyled footer-widget__links">
-                               <!--  <li><a href="#">About us</a></li> -->
-                                <!-- <li><a href="#">Mushroom</a></li>
-                                 --><li><a href="{{url('services')}}">Services</a></li>
+                               <li><a href="{{url('page/terms-condition')}}">Terms and Conditions</a></li>
+                                <li><a href="{{url('page/privacy-policy')}}">Privacy Policy</a></li>
+                                <li><a href="{{url('services')}}">Services</a></li>
                                 <li><a href="{{url('training')}}">Training</a></li>
                                 <li><a href="{{url('contact')}}">Contact</a></li>
                             </ul><!-- /.list-unstyled -->
@@ -42,14 +46,14 @@
                                     <img src="{{ asset('public/agro/assets/images/resources/business.jpg') }}" alt="">
                                     <div class="footer-widget__post-content">
                                         <span>July 26, 2021</span>
-                                        <h4><a href="blog-details.html">How to start a profitable Mushroom business</a></h4>
+                                        <h4><a href="{{url('blog/how-to-start-a-profitable-mushrooms-business')}}">How to start a profitable Mushroom business</a></h4>
                                     </div><!-- /.footer-widget__post-content -->
                                 </li>
                                 <li>
                                     <img src="{{ asset('public/agro/assets/images/resources/chemical-free.jpg') }}" alt="">
                                     <div class="footer-widget__post-content">
                                         <span>Aug 7, 2021</span>
-                                        <h4><a href="blog-details.html">Our mushrooms are chemical free mushrooms</a></h4>
+                                        <h4><a href="{{url('blog/our-mushrooms-are-checmical-free-mushrooms')}}">Our mushrooms are chemical free mushrooms</a></h4>
                                     </div><!-- /.footer-widget__post-content -->
                                 </li>
                             </ul><!-- /.list-unstyled footer-widget__post -->
@@ -77,10 +81,10 @@
         </footer><!-- /.site-footer -->
         <div class="bottom-footer">
             <div class="container">
-                <p>© Copyright 2021 by Stan Agro Ventures</p>
+                <p>© Copyright 2022 by Stan Agro Ventures</p>
                 <div class="bottom-footer__links">
-                    <a href="#">Terms & Conditions</a>
-                    <a href="#">Privacy Policy</a>
+                    <!-- a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a> -->
                    <!--  <a href="#">Sitemap</a> -->
                 </div><!-- /.bottom-footer__links -->
             </div><!-- /.container -->
@@ -96,7 +100,7 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="far fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/logo-light.png" width="155" alt="" /></a>
+                <a href="/" aria-label="logo image"><img src="{{url('storage/uploads/img/1624973543logo-removebg-preview.png')}}" width="155" alt="" /></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>
@@ -169,7 +173,15 @@
     <!-- <script src="{{ asset('public/enduser/assets/js/scripts.js') }}"></script>
      --><script src="{{ asset('public/assets/js/bootbox.js') }}"></script>
     <script src="{{ asset('public/assets/js/common.js') }}"></script> 
-    
+    <script>
+     jQuery(document).ready(function($) {
+      var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+       // alert(pgurl);
+        //if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+        $("."+pgurl).addClass("current");
+        // $(this).parent("li").addClass("active");
+        });
+    </script>
 </body>
 
 </html>

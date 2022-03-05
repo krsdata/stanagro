@@ -68,12 +68,12 @@ ul {
                         <a href="{{url('/')}}" aria-label="logo image"><img src="{{url('storage/uploads/img/'.$setting->website_logo)}}" width="153" alt=""></a>
                         <span class="fa fa-bars mobile-nav__toggler"></span>
                     </div><!-- /.logo-box -->
-                    <ul class="main-menu__list">
+                    <ul class="main-menu__list" id="mainMenu">
                         <li class="dropdown">
-                            <a href="{{url('/')}}">Home</a>
+                            <a href="{{url('/')}}" class="menulist">Home</a>
                         </li>
                         <li>
-                            <a href="#">Mushroom Spawms</a>
+                            <a href="#" class="menulist" id="menulist">Mushroom Spawn</a>
                             <ul>
                                   @foreach($category_list as $key => $result)
                   
@@ -84,16 +84,16 @@ ul {
                                   ?>
 
                                         <li class="dropdown yamm mega-menu"> 
-                                        <a href="{!! url('category/'.$result->slug) !!}"> {!! ucfirst(strtolower($result->category_name)) !!}</a>
+                                        <a href="{!! url('category/'.$result->slug) !!}" class="{{$result->slug}}"> {!! ucfirst($result->category_name) !!}</a>
                                         </li> 
                                                          
                                       @endforeach     
                             </ul>
                         </li>
-                        <li><a href="{{url('/training')}}">Training</a></li>
-                        <li><a href="{{url('/services')}}">Services</a></li>
-                        <li><a href="{{url('/contact')}}">Contact</a></li>
-                        
+                        <li class="training"><a class="menulist " href="{{url('/training')}}"><b>Training</b></a></li>
+                        <li class="services"><a  class="menulist " href="{{url('/services')}}">Services</a></li>
+                        <li class="contact"><a  class="menulist " href="{{url('/contact')}}">Contact</a></li>
+                       <!--  <li><a  class="menulist" href="{{url('blog')}}">Blog</a></li> -->
                     </ul>
                     <!-- /.main-menu__list -->
 

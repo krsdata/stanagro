@@ -14,7 +14,7 @@
             <!-- /.page-header__bg -->
             <div class="container">
                 <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{url('/')}}">Home</a></li>
                     <li>/</li>
                     <li><span>Contact Us</span></li>
                 </ul><!-- /.thm-breadcrumb list-unstyled -->
@@ -43,19 +43,26 @@
                         </div><!-- /.contact-one__content -->
                     </div><!-- /.col-sm-12 -->
                     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
-                        <form action="assets/inc/sendemail.php" class="contact-one__form contact-form-validated">
+
+                        
+
+                    <form action="{{route('sendMail')}}" class="contact-one__form" method="post">
+                        @if(isset($_REQUEST['status']) && $_REQUEST['status']==1)
+                        <div class="btn btn-success" style="width:100%; margin: 5px;"> Your Enquiry recieved. We'll get back you soon!!</div>
+                        @endif
+                        <input type="hidden" name="_token" value="{{ csrf_token()}}" >
                             <div class="row">
                                 <div class="col-lg-6">
                                     <input type="text" name="name" placeholder="Full Name">
                                 </div><!-- /.col-lg-6 -->
                                 <div class="col-lg-6">
-                                    <input type="text" name="email" placeholder="Email Address">
+                                    <input type="email" name="email" placeholder="Email Address" required>
                                 </div><!-- /.col-lg-6 -->
                                 <div class="col-lg-6">
-                                    <input type="text" name="phone" placeholder="Phone Number">
+                                    <input type="text" name="phone" placeholder="Phone Number" required>
                                 </div><!-- /.col-lg-6 -->
                                 <div class="col-lg-6">
-                                    <input type="text" name="subject" placeholder="Subject">
+                                    <input type="text" name="subject" placeholder="Subject" required>
                                 </div><!-- /.col-lg-6 -->
                                 <div class="col-lg-12">
                                     <textarea name="message" placeholder="Write Message"></textarea>
@@ -65,6 +72,7 @@
                                 </div><!-- /.col-lg-12 -->
                             </div><!-- /.row -->
                         </form>
+
                     </div><!-- /.col-sm-12 col-md-6 col-lg-8 -->
                 </div><!-- /.row -->
             </div><!-- /.container -->

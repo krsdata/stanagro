@@ -43,7 +43,7 @@
                                     </div><!-- /.col-lg-6 -->
                                 </div><!-- /.row -->
                             </div><!-- /.about-one__icon-row -->
-                            <a href="about.html" class="thm-btn">Discover More</a><!-- /.thm-btn -->
+                            <a href="{{url('services')}}" class="thm-btn">Discover More</a><!-- /.thm-btn -->
                         </div><!-- /.about-one__content -->
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->

@@ -41,6 +41,16 @@
                 ])->where('id', '[0-9]+');
 
 
+        Route::get('blog',[
+                  'as' => 'blog',
+                  'uses'  => 'HomeController@blog'
+                ]); 
+
+        Route::get('blog/{name}',[
+                  'as' => 'blogDetails', 
+                  'uses'  => 'HomeController@blogContent'
+                ]);
+
 
         Route::get('category/{name}',[
                   'as' => 'productcategory',
@@ -108,11 +118,18 @@
                   'as' => 'training',
                   'uses'  => 'HomeController@training'
                 ]);  
-           Route::get('contact',[
+           Route::get('privacy-policy',[
+                  'as' => 'privacy-policy',
+                  'uses'  => 'HomeController@privacy'
+                ]);       
+           Route::get('terms-conditions',[
+                  'as' => 'terms-conditions',
+                  'uses'  => 'HomeController@tNc'
+                ]);
+            Route::get('contact',[
                   'as' => 'contact',
                   'uses'  => 'HomeController@contact'
                 ]);
-
            Route::get('track-orders',[
                   'as' => 'trackOrder',
                   'uses'  => 'HomeController@trackOrder'
@@ -211,13 +228,23 @@
                   'uses'  => 'ProductController@placeOrder'
                 ]);
 
+        Route::get('page-not-found',[
+                  'as' => 'pageNotFound',
+                  'uses'  => 'HomeController@pageNotFound'
+                ]);
+
+
 
         Route::get('orderSuccess',[
                   'as' => 'orderSuccess',
                   'uses'  => 'ProductController@thankYou'
                 ]); 
 
-        
+         Route::post('sendMail',[
+                  'as' => 'sendMail',
+                  'uses'  => 'HomeController@sendmail'
+                ]);
+
         Route::get('signout', function(App\User $user , Illuminate\Http\Request $request) { 
         
         $request->session()->forget('current_user');

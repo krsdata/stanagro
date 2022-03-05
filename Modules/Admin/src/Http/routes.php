@@ -20,9 +20,9 @@ declare(strict_types=1);
         // Session::set('role','admin');
 
         $admin_auth = auth()->guard('admin');
-        $user_auth =  auth()->guard('web'); //Auth::attempt($credentials);
+        //$user_auth =  auth()->guard('web'); //Auth::attempt($credentials);
 
-        if ($admin_auth->attempt($credentials) or $user_auth->attempt($credentials)) {
+        if ($admin_auth->attempt($credentials)) {
             return Redirect::to('admin');
         } else {
             return redirect()
@@ -205,22 +205,22 @@ declare(strict_types=1);
         );
 
 
-        // Route::bind('blog', function($value, $route) {
-        //     return Modules\Admin\Models\Blogs::find($value);
-        // });
+        Route::bind('blog', function($value, $route) {
+            return Modules\Admin\Models\Blogs::find($value);
+        });
 
-        // Route::resource('admin/blog', 'Modules\Admin\Http\Controllers\BlogController', [
-        //     'names' => [
-        //         'edit' => 'blog.edit',
-        //         'show' => 'blog.show',
-        //         'destroy' => 'blog.destroy',
-        //         'update' => 'blog.update',
-        //         'store' => 'blog.store',
-        //         'index' => 'blog',
-        //         'create' => 'blog.create',
-        //     ]
-        //         ]
-        // );
+        Route::resource('admin/blog', 'Modules\Admin\Http\Controllers\BlogController', [
+            'names' => [
+                'edit' => 'blog.edit',
+                'show' => 'blog.show',
+                'destroy' => 'blog.destroy',
+                'update' => 'blog.update',
+                'store' => 'blog.store',
+                'index' => 'blog',
+                'create' => 'blog.create',
+            ]
+                ]
+        );
 
 
         Route::bind('role', function ($value, $route) {

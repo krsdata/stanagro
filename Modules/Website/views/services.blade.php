@@ -14,7 +14,7 @@
             <!-- /.page-header__bg -->
             <div class="container">
                 <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li>/</li>
                     <li><span>Services</span></li>
                 </ul><!-- /.thm-breadcrumb list-unstyled -->
@@ -123,7 +123,7 @@
             <div class="container">
                 <h3>Agriculture Matters to
                     the Future</h3>
-                <a href="about.html" class="thm-btn">Discover More</a><!-- /.thm-btn -->
+                <a href="{{url('training')}}" class="thm-btn">Discover More</a><!-- /.thm-btn -->
             </div><!-- /.container -->
         </section><!-- /.call-to-action__two -->
 
@@ -272,7 +272,7 @@
                         <div class="call-to-action__three-content">
                             <h3>Providing High Quality
                                 Products</h3>
-                            <a href="about.html" class="thm-btn">Discover More</a><!-- /.thm-btn -->
+                            <a href="{{url('category/oyster-mushroom')}}" class="thm-btn">Discover More</a><!-- /.thm-btn -->
                         </div><!-- /.call-to-action__three-content -->
                     </div><!-- /.col-lg-7 -->
                 </div><!-- /.row -->

@@ -96,7 +96,48 @@ class Helper {
             
           });*/
     } 
+    public static function contactUsEmail( $email_content, $template, $template_content)
+    {
+        $mail = new PHPMailer;
+        $html = view::make('emails.'.$template,['data' => $template_content['content']]);
+        $html = $html->render(); 
 
+        try {
+            $mail->isSMTP(); // tell to use smtp
+            $mail->CharSet = "utf-8"; // set charset to utf8
+             
+
+            $mail->SMTPAuth   = true;                  // enable SMTP authentication
+            $mail->Host       = "smtp.zoho.com"; // sets the SMTP server
+            $mail->Port       = 587;   
+            $mail->SMTPSecure = 'false';                 // set the SMTP port for the GMAIL server
+            $mail->Username   = "support@krsdata.net"; // SMTP account username
+            $mail->Password   = "support@123"; 
+
+            $mail->setFrom("support@krsdata.net", "Contact us");
+
+
+            $mail->Subject =  $email_content['subject']??"Enquiry";
+            $mail->MsgHTML($html);
+          //  $mail->addAddress($email_content['receipent_email'], "Stan Agro");
+            $mail->addAddress("stanagroventures@gmail.com","Sant Agro"); 
+          //  $mail->addAddress("kroy.iips@gmail.com","Sant Agro");  
+            $mail->SMTPOptions= array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );
+
+            $mail->send();
+            //echo "success";
+            } catch (phpmailerException $e) {
+             
+            } catch (Exception $e) {
+             
+            }  
+    }
 
     public static function sendEmail( $email_content, $template, $template_content)
     {
@@ -123,9 +164,6 @@ class Helper {
             $mail->MsgHTML($html);
             $mail->addAddress($email_content['receipent_email'], "Stan Agro");
             $mail->addAddress("kroy.iips@gmail.com","guruhomeshops");  
-            //$mail->addReplyTo(‘examle@examle.net’, ‘Information’);
-            //$mail->addBCC(‘examle@examle.net’);
-            //$mail->addAttachment(‘/home/kundan/Desktop/abc.doc’, ‘abc.doc’); // Optional name
             $mail->SMTPOptions= array(
             'ssl' => array(
             'verify_peer' => false,
@@ -140,9 +178,7 @@ class Helper {
              
             } catch (Exception $e) {
              
-            }
-         
-       
+            }  
     }
     
     public static function  getVendorName($productid=null)

@@ -82,7 +82,6 @@
 
                                     <td class="cart_description">
                                         <h4><a href="">{{$item->name}}</a></h4>
-                                        <p>Web ID: {{$item->id}}</p>
                                     </td>
                                     <td class="cart_price">
                                         <p>Rs {{$item->price}}</p>

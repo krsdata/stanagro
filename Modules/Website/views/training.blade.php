@@ -16,7 +16,7 @@
             <!-- /.page-header__bg -->
             <div class="container">
                 <ul class="thm-breadcrumb list-unstyled">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li>/</li>
                     <li><span>Training</span></li>
                 </ul><!-- /.thm-breadcrumb list-unstyled -->

@@ -9,46 +9,32 @@
         @section('content') 
 
             @include('website::partials.menu')
-            <div class="breadcrumb">
-                <div class="container">
-                    <div class="breadcrumb-inner">
-                        <ul class="list-inline list-unstyled">
-                            <li><a href="home.html">Home</a></li>
-                            <li class="active">{{ ucfirst($page_title) ?? ''}}</li>
-                        </ul>
-                    </div><!-- /.breadcrumb-inner -->
-                </div><!-- /.container -->
-            </div>
-        <div class="checkout-box faq-page">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="heading-title">{{$page_title?? ''}}</h2>
-                    <div class="panel-group checkout-steps" id="accordion">
-           
-                <!-- panel-heading -->
-
-                        <div id="collapseOne" class="panel-collapse collapse in">
-
-                            <!-- panel-body  -->
+             <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg-1-1.jpg);"></div>
+            <!-- /.page-header__bg -->
+            <div class="container">
+                <ul class="thm-breadcrumb list-unstyled">
+                    <li><a href="/">Home</a></li>
+                    <li>/</li>
+                    <li><span>{{ ucfirst($page_title) ?? ''}}</span></li>
+                </ul><!-- /.thm-breadcrumb list-unstyled -->
+                <h2>{{$page_title?? ''}}</h2>
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+        
+        <div class="container">
+             <div class="row">
+              <!-- panel-body  -->
                             <div class="panel-body">
                                {!! $html??'' !!}        
                             </div>
-                            @if(!empty($page->images))
+                          <!--   @if(!empty($page->images))
                             <div class="panel-body">
                                <img src="{{url('storage/pages/'.$page->images)}}" width="100%">        
                             </div>
-                            @endif
+                            @endif -->
                             <!-- panel-body  -->
-
-                        </div><!-- row -->
-                    </div>
-<!-- checkout-step-01  -->
-                          
- 
-
-                        
-                </div><!-- /.checkout-steps -->
-                </div>
-        </div><!-- /.row -->
-    </div><!-- /.checkout-box -->
+             
+             </div>
+        </div>         
 @stop
